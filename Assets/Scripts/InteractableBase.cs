@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractableBase : MonoBehaviour
 {
 	public bool IsInteractable = true;
+	private SpriteRenderer _spriteRenderer;
 
 	private bool _isActiveInteractable = false;
 	public bool IsActiveInteractable
@@ -22,12 +23,10 @@ public class InteractableBase : MonoBehaviour
 		}
 	}
 
-	private InteractablesController InteractablesController;
-
 	// Start is called before the first frame update
 	void Start()
 	{
-		InteractablesController = GetComponentInParent<InteractablesController>();
+		_spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	// Update is called once per frame
@@ -65,15 +64,13 @@ public class InteractableBase : MonoBehaviour
 		{
 			// Events when this object becomes the active interactable
 
-			// select highlight
-			// send player active info
+			_spriteRenderer.color = Color.blue;
 		}
 		else 
 		{
 			// Events when this object loses the active interactable
 
-			// deselect highlight
-			// send player active info
+			_spriteRenderer.color = Color.white;
 		}
 	}
 }

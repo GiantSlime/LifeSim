@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -7,7 +8,11 @@ public class PlayerController : MonoBehaviour
 {
 	public float MovementSpeed = 1.0f;
 
-	private List<GameObject> _interactableGameObjects;
+	private readonly List<GameObject> _interactableGameObjects = new List<GameObject>();
+
+	// energy
+	// hunger
+	// fun
 
 	// Start is called before the first frame update
 	void Start()
@@ -20,17 +25,27 @@ public class PlayerController : MonoBehaviour
 	{
 		MovementUpdate();
 		InteractablesUpdate();
+		InputUpdate();
+	}
+
+	private const KeyCode InteractKey = KeyCode.F;
+	private void InputUpdate()
+	{
+		if (Input.GetKeyDown(InteractKey))
+		{
+			Debug.Log($"Interacted with {_currentActiveInteractable?.gameObject.name}.");
+		}
 	}
 
 	private void MovementUpdate()
 	{
 		float deltaMove = 0f;
 
-		if (Input.GetKey(KeyCode.A))
+		if (Input.GetKey(KeyCode.A)) // Could be mapped to movement keys
 		{
 			deltaMove -= 1;
 		}
-		if (Input.GetKey(KeyCode.D))
+		if (Input.GetKey(KeyCode.D)) // Could be mapped to movement keys
 		{
 			deltaMove += 1;
 		}
@@ -81,9 +96,12 @@ public class PlayerController : MonoBehaviour
 		if (interactableBase == _currentActiveInteractable)
 			return;
 
+		Debug.Log("New Active Interactable found, setting active to new interactable.");
+
 		// turn off old, turn on new
 		_currentActiveInteractable?.SetActiveInteractable(false);
 		interactableBase.SetActiveInteractable(true);
+		Debug.Log("ActiveInteractableSet");
 		_currentActiveInteractable = interactableBase;
 	}
 
@@ -95,5 +113,34 @@ public class PlayerController : MonoBehaviour
 	private float GetDistanceFromObject(GameObject gameObject)
 	{
 		return System.Math.Abs(this.transform.position.x - gameObject.transform.position.x);
+	}
+
+	public void OnTriggerEnter2D(Collider2D collision)
+	{
+		Debug.Log("OnTriggerEnter2D()");
+		var interactable = collision.GetComponent<InteractableBase>();
+		if (interactable != null)
+		{
+			Debug.Log($"Interactable {interactable.gameObject.name} collided.");
+
+			_interactableGameObjects.Add(collision.gameObject);
+
+			return;
+		}
+
+		// other object checks.
+	}
+
+	public void OnTriggerExit2D(Collider2D collision)
+	{
+		var interactable = collision.GetComponent<InteractableBase>();
+		if (interactable != null)
+		{
+			_interactableGameObjects.Remove(collision.gameObject);
+
+			return;
+		}
+
+		// other object checks.
 	}
 }
