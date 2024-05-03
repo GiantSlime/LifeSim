@@ -8,7 +8,13 @@ public class PlayerController : MonoBehaviour
 {
 	public float MovementSpeed = 1.0f;
 
+	public StatusController StatusController;
 	private readonly List<GameObject> _interactableGameObjects = new List<GameObject>();
+
+	public GameObject SubTaskCenter;
+	public TimeController TimeController;
+
+	private bool _isInteracting = false;
 
 	// energy
 	// hunger
@@ -28,17 +34,14 @@ public class PlayerController : MonoBehaviour
 		InputUpdate();
 	}
 
-	private const KeyCode InteractKey = KeyCode.F;
-	private void InputUpdate()
-	{
-		if (Input.GetKeyDown(InteractKey))
-		{
-			Debug.Log($"Interacted with {_currentActiveInteractable?.gameObject.name}.");
-		}
-	}
-
 	private void MovementUpdate()
 	{
+		// Can't move while interacting.
+		if (_isInteracting)
+		{
+			return;
+		}
+
 		float deltaMove = 0f;
 
 		if (Input.GetKey(KeyCode.A)) // Could be mapped to movement keys
@@ -50,7 +53,13 @@ public class PlayerController : MonoBehaviour
 			deltaMove += 1;
 		}
 
-		var horizontalMoveDistance = deltaMove * MovementSpeed * Time.deltaTime;
+		var movementSpeedModifier = 1f;
+		if (StatusController.HasBadStatus())
+		{
+			movementSpeedModifier -= 0.5f;
+		}
+
+		var horizontalMoveDistance = deltaMove * MovementSpeed * movementSpeedModifier * Time.deltaTime;
 		transform.position += new Vector3(horizontalMoveDistance, 0f, 0f);
 	}
 
@@ -90,7 +99,7 @@ public class PlayerController : MonoBehaviour
 		var interactableBase = closestInteractable.GetComponent<InteractableBase>();
 		if (interactableBase == null)
 		{
-			throw new System.Exception($"InteractableBase not found in object={closestInteractable} even though it is in list of interactable gameobjects");
+			throw new Exception($"InteractableBase not found in object={closestInteractable} even though it is in list of interactable gameobjects");
 		}
 
 		if (interactableBase == _currentActiveInteractable)
@@ -105,6 +114,71 @@ public class PlayerController : MonoBehaviour
 		_currentActiveInteractable = interactableBase;
 	}
 
+	private const KeyCode InteractKey = KeyCode.F;
+	private GameObject _interactMenu = null;
+	private InteractableSubTaskController _subTaskController = null;
+	private void InputUpdate()
+	{
+		if (_isInteracting)
+		{
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				StopInteracting();
+			}
+
+			return;
+		}
+
+		if (Input.GetKeyDown(InteractKey))
+		{
+			if (_currentActiveInteractable == null)
+			{
+				Debug.Log("No object nearby to interact with.");
+				return;
+			}
+
+			Debug.Log($"Interacting with {_currentActiveInteractable.gameObject.name}.");
+			_interactMenu = Instantiate(_currentActiveInteractable.InteractionMenu, SubTaskCenter.transform, false);
+			_subTaskController = _interactMenu.GetComponent<InteractableSubTaskController>();
+			_subTaskController.Player = this;
+
+			_isInteracting = true;
+		}
+	}
+
+	public void Interact_OnGameTick(int timePassedPerTick)
+	{
+		Debug.Log($"Interact_OnGameTick({timePassedPerTick})");
+		StatusController.Interact(_interaction, timePassedPerTick);
+		if (_interaction.HasMaximumTime && _interaction.CurrentMaximumTime <= 0)
+		{
+			Debug.Log("Interaction has reached maximum time. Stopping Interaction");
+			StopInteracting();
+		}
+	}
+
+	private InteractionScriptableObject _interaction;
+	public void StartInteracting(InteractionScriptableObject interaction)
+	{
+		Debug.Log($"StartInteracting({interaction.name})");
+		_interaction = interaction;
+		TimeController.OnGameTick += Interact_OnGameTick;
+		_subTaskController = null;
+		Destroy(_interactMenu);
+		_interactMenu = null;
+	}
+
+	public void StopInteracting()
+	{
+		Debug.Log("StopInteracting()");
+		TimeController.OnGameTick -= Interact_OnGameTick;
+		_interaction = null;
+		_isInteracting = false;
+		_subTaskController = null;
+		Destroy(_interactMenu);
+		_interactMenu = null;
+	}
+
 	/// <summary>
 	/// Gets the absolute distance from a gameobject to this object.
 	/// </summary>
@@ -112,7 +186,7 @@ public class PlayerController : MonoBehaviour
 	/// <returns>The absolute distance</returns>
 	private float GetDistanceFromObject(GameObject gameObject)
 	{
-		return System.Math.Abs(this.transform.position.x - gameObject.transform.position.x);
+		return Math.Abs(this.transform.position.x - gameObject.transform.position.x);
 	}
 
 	public void OnTriggerEnter2D(Collider2D collision)

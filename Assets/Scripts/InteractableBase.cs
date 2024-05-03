@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractableBase : MonoBehaviour
@@ -22,6 +23,8 @@ public class InteractableBase : MonoBehaviour
 			RaiseActiveInteractableChange();
 		}
 	}
+
+	public GameObject InteractionMenu;
 
 	// Start is called before the first frame update
 	void Start()

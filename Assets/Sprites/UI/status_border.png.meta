@@ -48,8 +48,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 3, y: 3, z: 3, w: 3}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -95,7 +95,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: status_border_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10.666666
+        width: 5.3333335
+        height: 5.3333335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f438e41c3cf82b34ba57e8d8e27908f8
+      internalID: 260923201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: status_border_1
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 10.666666
+        width: 5.3333335
+        height: 5.3333335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b17174e50600b3149931a9303a6998bb
+      internalID: 1045818369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: status_border_2
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 10.666666
+        width: 5.3333335
+        height: 5.3333335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ea97b01210e47449cc3f571178d199
+      internalID: -1061523358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: status_border_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5.6666665
+        width: 5.3333335
+        height: 5.3333335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a866e1bdd0e6e64fb63331ac751400d
+      internalID: -143540501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: status_border_4
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 5.6666665
+        width: 5.3333335
+        height: 5.3333335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da726f6daac4ef84fb576c2e2173bb1f
+      internalID: -479160246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: status_border_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.6666665
+        width: 5.3333335
+        height: 5.3333335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47991e6edd993e947a750a880123450e
+      internalID: 1616291018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: status_border_6
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0.6666665
+        width: 5.3333335
+        height: 5.3333335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de943308345b854fb047ecb56c64f56
+      internalID: 227514164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: status_border_7
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0.6666665
+        width: 5.3333335
+        height: 5.3333335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35dcab2135f27724b84d1670bfaa6622
+      internalID: -1906965016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +274,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      status_border_0: 260923201
+      status_border_1: 1045818369
+      status_border_2: -1061523358
+      status_border_3: -143540501
+      status_border_4: -479160246
+      status_border_5: 1616291018
+      status_border_6: 227514164
+      status_border_7: -1906965016
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
