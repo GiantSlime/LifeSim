@@ -8,6 +8,9 @@ public class InteractableBase : MonoBehaviour
 	public bool IsInteractable = true;
 	private SpriteRenderer _spriteRenderer;
 
+	public Sprite DefaultSprite;
+	public Sprite InteractedSprite;
+
 	private bool _isActiveInteractable = false;
 	public bool IsActiveInteractable
 	{
@@ -67,13 +70,13 @@ public class InteractableBase : MonoBehaviour
 		{
 			// Events when this object becomes the active interactable
 
-			_spriteRenderer.color = Color.blue;
+			_spriteRenderer.sprite = InteractedSprite;
 		}
 		else 
 		{
 			// Events when this object loses the active interactable
 
-			_spriteRenderer.color = Color.white;
+			_spriteRenderer.sprite = DefaultSprite;
 		}
 	}
 }

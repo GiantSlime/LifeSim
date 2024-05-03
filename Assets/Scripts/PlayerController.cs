@@ -16,6 +16,12 @@ public class PlayerController : MonoBehaviour
 
 	private bool _isInteracting = false;
 
+	public Animator Base;
+	public Animator Shirt;
+	public Animator Shoes;
+	public Animator Hair;
+	public Animator Pants;
+
 	// energy
 	// hunger
 	// fun
@@ -52,6 +58,15 @@ public class PlayerController : MonoBehaviour
 		{
 			deltaMove += 1;
 		}
+
+		Base.SetBool("IsWalking", deltaMove != 0);
+		Shirt.SetBool("IsWalking", deltaMove != 0);
+		Shoes.SetBool("IsWalking", deltaMove != 0);
+		Hair.SetBool("IsWalking", deltaMove != 0);
+		Pants.SetBool("IsWalking", deltaMove != 0);
+
+		if (deltaMove == 0)
+			Base.StopPlayback();
 
 		var movementSpeedModifier = 1f;
 		if (StatusController.HasBadStatus())
