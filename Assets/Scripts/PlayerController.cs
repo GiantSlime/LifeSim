@@ -22,14 +22,30 @@ public class PlayerController : MonoBehaviour
 	public Animator Hair;
 	public Animator Pants;
 
-	// energy
-	// hunger
-	// fun
+	List<Animator> _playerAnimators = new List<Animator>();
+
+	public static PlayerController Instance;
+
+	private void Awake()
+	{
+		if (Instance != null) 
+		{
+			Destroy(gameObject);
+			return;
+		}
+
+		Instance = this;
+		DontDestroyOnLoad(gameObject);
+	}
 
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		_playerAnimators.Add(Base);
+		_playerAnimators.Add(Shirt);
+		_playerAnimators.Add(Shoes);
+		_playerAnimators.Add(Hair);
+		_playerAnimators.Add(Pants);
 	}
 
 	// Update is called once per frame
@@ -40,6 +56,8 @@ public class PlayerController : MonoBehaviour
 		InputUpdate();
 	}
 
+	bool _isPlayerMoving = false;
+	int _playerDirectionFacing = 1; // -1 left : 1 right
 	private void MovementUpdate()
 	{
 		// Can't move while interacting.
@@ -48,7 +66,7 @@ public class PlayerController : MonoBehaviour
 			return;
 		}
 
-		float deltaMove = 0f;
+		int deltaMove = 0;
 
 		if (Input.GetKey(KeyCode.A)) // Could be mapped to movement keys
 		{
@@ -59,14 +77,14 @@ public class PlayerController : MonoBehaviour
 			deltaMove += 1;
 		}
 
-		Base.SetBool("IsWalking", deltaMove != 0);
-		Shirt.SetBool("IsWalking", deltaMove != 0);
-		Shoes.SetBool("IsWalking", deltaMove != 0);
-		Hair.SetBool("IsWalking", deltaMove != 0);
-		Pants.SetBool("IsWalking", deltaMove != 0);
+		SetPlayerWalkingAnimation(deltaMove != 0);
 
-		if (deltaMove == 0)
-			Base.StopPlayback();
+		// Check player facing direction
+		if (deltaMove != 0 && deltaMove != _playerDirectionFacing)
+		{
+			_playerDirectionFacing = deltaMove;
+			SetPlayerAnimationDirection(deltaMove);
+		}
 
 		var movementSpeedModifier = 1f;
 		if (StatusController.HasBadStatus())
@@ -76,6 +94,17 @@ public class PlayerController : MonoBehaviour
 
 		var horizontalMoveDistance = deltaMove * MovementSpeed * movementSpeedModifier * Time.deltaTime;
 		transform.position += new Vector3(horizontalMoveDistance, 0f, 0f);
+	}
+
+	private void SetPlayerWalkingAnimation(bool isWalking)
+	{
+		_playerAnimators.ForEach(a => { a.SetBool("IsWalking", isWalking); });
+	}
+
+	private void SetPlayerAnimationDirection(int moveDirection)
+	{
+		transform.localScale = new Vector3(moveDirection, 1, 1);
+		//_playerAnimators.ForEach(a => { a.transform.rotation = new Quaternion(0, 90 + -90 * moveDirection, 0, 0); });
 	}
 
 	private InteractableBase _currentActiveInteractable = null;
