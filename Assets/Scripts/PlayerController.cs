@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -16,36 +17,22 @@ public class PlayerController : MonoBehaviour
 
 	private bool _isInteracting = false;
 
-	public Animator Base;
-	public Animator Shirt;
-	public Animator Shoes;
-	public Animator Hair;
-	public Animator Pants;
+	public GameObject Base;
+	public GameObject Shirt;
+	public GameObject Shoes;
+	public GameObject Hair;
+	public GameObject Pants;
 
 	List<Animator> _playerAnimators = new List<Animator>();
-
-	public static PlayerController Instance;
-
-	private void Awake()
-	{
-		if (Instance != null) 
-		{
-			Destroy(gameObject);
-			return;
-		}
-
-		Instance = this;
-		DontDestroyOnLoad(gameObject);
-	}
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		_playerAnimators.Add(Base);
-		_playerAnimators.Add(Shirt);
-		_playerAnimators.Add(Shoes);
-		_playerAnimators.Add(Hair);
-		_playerAnimators.Add(Pants);
+		_playerAnimators.Add(Base.GetComponent<Animator>());
+		_playerAnimators.Add(Shirt.GetComponent<Animator>());
+		_playerAnimators.Add(Shoes.GetComponent<Animator>());
+		_playerAnimators.Add(Hair.GetComponent<Animator>());
+		_playerAnimators.Add(Pants.GetComponent<Animator>());
 	}
 
 	// Update is called once per frame
@@ -54,6 +41,17 @@ public class PlayerController : MonoBehaviour
 		MovementUpdate();
 		InteractablesUpdate();
 		InputUpdate();
+	}
+
+	public void LoadCharacterisation(Dictionary<string, object> data)
+	{
+		Base.GetComponent<SpriteRenderer>().color = (Color)data["BaseColor"];
+		Shirt.GetComponent<SpriteRenderer>().color = (Color)data["ShirtColor"];
+		Shoes.GetComponent<SpriteRenderer>().color = (Color)data["ShoeColor"];
+		Hair.GetComponent<SpriteRenderer>().color = (Color)data["HairColor"];
+		Pants.GetComponent<SpriteRenderer>().color = (Color)data["PantsColor"];
+		Hair.GetComponent<Animator>().runtimeAnimatorController = (RuntimeAnimatorController)data["HairAC"];
+		Pants.GetComponent<Animator>().runtimeAnimatorController = (RuntimeAnimatorController)data["PantsAC"];
 	}
 
 	bool _isPlayerMoving = false;

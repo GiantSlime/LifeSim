@@ -21,7 +21,9 @@ public class CharacterisationController : MonoBehaviour
     private Animator HairAnimator;
     private Animator PantsAnimator;
 
-    public TMP_InputField NameText;
+    public TMP_InputField NameInputField;
+
+    public TextMeshProUGUI NoNameErrorText;
 
     private readonly List<Color> _skinColorList = new List<Color>();
     private readonly List<Color> _shirtPantsShoesColorList = new List<Color>();
@@ -192,9 +194,25 @@ public class CharacterisationController : MonoBehaviour
 		PantsAnimator.runtimeAnimatorController = PantsAnimatorController[_pantsStyleIndex];
 	}
 
+    IEnumerator DisableNoNameError()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        NoNameErrorText.gameObject.SetActive(false);
+    }
+
 	public void StartGame() 
     {
-        // if nameField == empty, reject => need name
+        if (string.IsNullOrWhiteSpace(NameInputField.text))
+        {
+            NoNameErrorText.gameObject.SetActive(true);
+            StartCoroutine(DisableNoNameError());
+            return;
+        }
+
+        MainController.Instance.SavePlayerData(BaseSpriteRenderer.color, ShirtSpriteRenderer.color, ShoesSpriteRenderer.color,
+            HairSpriteRenderer.color, PantsSpriteRenderer.color, HairAnimator.runtimeAnimatorController, 
+            PantsAnimator.runtimeAnimatorController, NameInputField.text);
+
         SceneManager.LoadScene("SampleScene");
     }
 }

@@ -343,6 +343,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &159809596 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7152291838848801667, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+  m_PrefabInstance: {fileID: 1853456442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &169329169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2639,6 +2644,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1239769217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2093377644411771094, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+  m_PrefabInstance: {fileID: 1853456442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1259262291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2116953376123690814, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+  m_PrefabInstance: {fileID: 1853456442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1322078063
 GameObject:
   m_ObjectHideFlags: 0
@@ -3342,6 +3357,26 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2239046674025464399, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: Base
+      value: 
+      objectReference: {fileID: 1239769217}
+    - target: {fileID: 2239046674025464399, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: Hair
+      value: 
+      objectReference: {fileID: 1259262291}
+    - target: {fileID: 2239046674025464399, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: Pants
+      value: 
+      objectReference: {fileID: 159809596}
+    - target: {fileID: 2239046674025464399, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: Shirt
+      value: 
+      objectReference: {fileID: 1952418134}
+    - target: {fileID: 2239046674025464399, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: Shoes
+      value: 
+      objectReference: {fileID: 2101166689}
+    - target: {fileID: 2239046674025464399, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
       propertyPath: MovementSpeed
       value: 3
       objectReference: {fileID: 0}
@@ -3747,6 +3782,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1952418134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2611950529609623378, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+  m_PrefabInstance: {fileID: 1853456442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1968538920
 GameObject:
   m_ObjectHideFlags: 0
@@ -4036,6 +4076,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2101166689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5715851163236290238, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+  m_PrefabInstance: {fileID: 1853456442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2119470642
 GameObject:
   m_ObjectHideFlags: 0

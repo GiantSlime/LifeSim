@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEditor.SearchService;
 using UnityEngine;
 
@@ -7,19 +8,40 @@ public class MainController : MonoBehaviour
 {
     public PlayerController playerController;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        playerController = FindObjectOfType<PlayerController>();
-        playerController.transform.position = transform.position;
-        playerController.transform.rotation = transform.rotation;
-        playerController.transform.localScale = transform.localScale;
-        playerController.enabled = true;
-    }
+	public static MainController Instance;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private static readonly Dictionary<string, object> DataDictionary = new Dictionary<string, object>();
+
+	private void Awake()
+	{
+		Debug.Log("MainController.Awake()");
+		if (Instance != null)
+		{
+			Destroy(gameObject);
+			Instance.RecalculatePlayerController();
+			return;
+		}
+
+		Instance = this;
+		DontDestroyOnLoad(gameObject);
+	}
+
+	public void RecalculatePlayerController()
+	{
+		playerController = FindObjectOfType<PlayerController>();
+		playerController.LoadCharacterisation(DataDictionary);
+	}
+
+	public void SavePlayerData(Color baseColor, Color shirtColor, Color shoeColor, Color hairColor, 
+							   Color pantsColor, RuntimeAnimatorController hairAC, RuntimeAnimatorController pantsAC, string name)
+	{
+		DataDictionary["BaseColor"] = baseColor;
+		DataDictionary["ShirtColor"] = shirtColor;
+		DataDictionary["ShoeColor"] = shoeColor;
+		DataDictionary["HairColor"] = hairColor;
+		DataDictionary["PantsColor"] = pantsColor;
+		DataDictionary["HairAC"] = hairAC;
+		DataDictionary["PantsAC"] = pantsAC;
+		DataDictionary["Name"] = name;
+	}
 }
