@@ -16,3 +16,7 @@ MonoBehaviour:
   Energy: 8
   Fun: -2
   Hunger: -2
+  HasMaximumTime: 0
+  MaximumTime: 0
+  CurrentMaximumTime: 0
+  MoneyCost: 10

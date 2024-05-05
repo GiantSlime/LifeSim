@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class StatusController : MonoBehaviour
 {
@@ -10,12 +11,29 @@ public class StatusController : MonoBehaviour
 	public Slider FunBarSlider;
 	public Slider HungerBarSlider;
 
+	public TextMeshProUGUI moneyText;
+
+	private float _money;
+	public float Money {
+		get => _money;
+		set 
+		{
+			_money = value;
+			moneyText.text = $"${(int)_money}";
+		}
+	}
+
 	[Range(0, 100)]
 	public float EnergyLevel = 100;
 	[Range(0, 100)]
 	public float FunLevel = 100;
 	[Range(0, 100)]
 	public float HungerLevel = 100;
+
+	public void AcceptCost(float cost)
+	{
+		Money += cost;
+	}
 
 	public void Interact(InteractionScriptableObject interaction, int time)
 	{
@@ -46,6 +64,12 @@ public class StatusController : MonoBehaviour
 		EnergyBarSlider.value = EnergyLevel;
 		FunBarSlider.value = FunLevel;
 		HungerBarSlider.value = HungerLevel;
+
+		if (interaction.MoneyCost > 0)
+		{
+			Debug.Log($"{interaction.MoneyCost} {Money}");
+			Money += interaction.MoneyCost * interactionTimeSpent;
+		}
 	}
 
 	public bool HasBadStatus()
@@ -54,5 +78,12 @@ public class StatusController : MonoBehaviour
 			return true;
 
 		return false;
+	}
+
+	public bool CanInteract(InteractionScriptableObject interaction)
+	{
+		if (interaction.MoneyCost > 0) return true;
+		else 
+			return Money >= -1 * interaction.MoneyCost;
 	}
 }

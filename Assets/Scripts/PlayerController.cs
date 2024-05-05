@@ -199,11 +199,18 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	public bool CanInteract(InteractionScriptableObject interaction)
+	{
+		return StatusController.CanInteract(interaction);
+	}
+
 	private InteractionScriptableObject _interaction;
 	public void StartInteracting(InteractionScriptableObject interaction)
 	{
 		Debug.Log($"StartInteracting({interaction.name})");
 		_interaction = interaction;
+		if (interaction.MoneyCost < 0) 
+			StatusController.AcceptCost(interaction.MoneyCost);
 		TimeController.OnGameTick += Interact_OnGameTick;
 		_subTaskController = null;
 		Destroy(_interactMenu);
