@@ -64,4 +64,9 @@ public class TimeController : MonoBehaviour
         Day += 1;
         DayText.text = $"Day {Day}";
     }
+
+    public void SetTimeSpeedModifier(float speed)
+    {
+        TimeSpeedModifier = speed;
+    }
 }
