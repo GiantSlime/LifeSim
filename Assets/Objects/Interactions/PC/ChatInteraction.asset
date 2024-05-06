@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74a2624fabfda964eb204e3a0329742e, type: 3}
-  m_Name: BookInteraction
+  m_Name: ChatInteraction
   m_EditorClassIdentifier: 
-  Name: Book
-  Energy: 8
-  Fun: -2
-  Hunger: -2
+  Name: Chat
+  Energy: -10
+  Fun: 10
+  Hunger: -5
+  HasMaximumTime: 0
+  MaximumTime: 0
+  CurrentMaximumTime: 0
