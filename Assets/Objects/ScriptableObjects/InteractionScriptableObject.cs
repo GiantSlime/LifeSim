@@ -20,5 +20,8 @@ public class InteractionScriptableObject : ScriptableObject
 
 	[HideInInspector]
 	public int CurrentMaximumTime = 0;
+
+	public float MoneyCost = 0;
+	public bool IsImmediateCost = false;
 }
 
