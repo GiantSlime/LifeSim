@@ -839,6 +839,7 @@ GameObject:
   - component: {fileID: 406442230}
   - component: {fileID: 406442229}
   - component: {fileID: 406442231}
+  - component: {fileID: 406442232}
   m_Layer: 14
   m_Name: DoorInteractable
   m_TagString: Untagged
@@ -974,6 +975,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6666667, y: 1.6666666}
   m_EdgeRadius: 0
+--- !u!114 &406442232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406442227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Explore outside
+  header: Door
 --- !u!1 &424300367
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,6 +1001,7 @@ GameObject:
   - component: {fileID: 424300371}
   - component: {fileID: 424300370}
   - component: {fileID: 424300369}
+  - component: {fileID: 424300372}
   m_Layer: 14
   m_Name: PCInteractable
   m_TagString: Untagged
@@ -1121,6 +1137,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &424300372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424300367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Work, play games, chat, or shop online!
+  header: PC
 --- !u!1 &425188081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,8 +1778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: bed
-  header: 
+  content: Sleep and restore energy
+  header: Bed
 --- !u!1 &631300655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,6 +2336,7 @@ GameObject:
   - component: {fileID: 820343658}
   - component: {fileID: 820343657}
   - component: {fileID: 820343659}
+  - component: {fileID: 820343660}
   m_Layer: 14
   m_Name: FridgeInteractable
   m_TagString: Untagged
@@ -2441,6 +2472,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.95544815, y: 1.5469058}
   m_EdgeRadius: 0
+--- !u!114 &820343660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820343655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Eat a quick leftover
+  header: Fridge
 --- !u!1 &826239061
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,6 +3503,7 @@ GameObject:
   - component: {fileID: 1584144034}
   - component: {fileID: 1584144033}
   - component: {fileID: 1584144032}
+  - component: {fileID: 1584144035}
   m_Layer: 14
   m_Name: StoveInteractable
   m_TagString: Untagged
@@ -3593,6 +3639,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1584144035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584144030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Cook a delicious meal
+  header: Stove
 --- !u!1 &1674139480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3605,6 +3665,7 @@ GameObject:
   - component: {fileID: 1674139484}
   - component: {fileID: 1674139483}
   - component: {fileID: 1674139482}
+  - component: {fileID: 1674139485}
   m_Layer: 14
   m_Name: BookInteractable
   m_TagString: Untagged
@@ -3740,6 +3801,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1674139485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674139480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Read your favourite book
+  header: Bookcase
 --- !u!1 &1740097810
 GameObject:
   m_ObjectHideFlags: 0

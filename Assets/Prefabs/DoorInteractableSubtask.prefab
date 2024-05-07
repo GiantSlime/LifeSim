@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 7257928575020423614}
   - component: {fileID: 7870564619768544838}
   - component: {fileID: 8729188620941892222}
+  - component: {fileID: 2950671902450647404}
   m_Layer: 5
   m_Name: SleepSubTask
   m_TagString: Untagged
@@ -359,6 +360,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interaction: {fileID: 11400000, guid: 68a7ea7b08590d44396e6c7591515694, type: 2}
   _interactableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &2950671902450647404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5320007131818871137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Select a destiantion
+  header: 
 --- !u!1 &7939020549569840671
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,3 +499,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  SubTaskPanel: {fileID: 0}

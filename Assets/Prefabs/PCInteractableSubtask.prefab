@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 5293121433193485053}
   - component: {fileID: 436041985975155440}
   - component: {fileID: 3396075796572778770}
+  - component: {fileID: 86854614250771113}
   m_Layer: 5
   m_Name: chat_subtask
   m_TagString: Untagged
@@ -227,6 +228,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interaction: {fileID: 11400000, guid: a2f4fcd1e3be5454e863b1c279bbeac5, type: 2}
   _interactableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &86854614250771113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633473216755619577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 'Chat with friends
+
+    +Fun
+
+    -Hunger
+
+    -Energy'
+  header: 
 --- !u!1 &1433006645892640327
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +470,7 @@ GameObject:
   - component: {fileID: 7257928575020423614}
   - component: {fileID: 7870564619768544838}
   - component: {fileID: 8729188620941892222}
+  - component: {fileID: 5898859082929278580}
   m_Layer: 5
   m_Name: Work_subtask
   m_TagString: Untagged
@@ -584,6 +606,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interaction: {fileID: 11400000, guid: 8a0b2b7ebe1867845b5d05a258a0ad48, type: 2}
   _interactableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &5898859082929278580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5320007131818871137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: '+$10/hr
+
+    -Energy
+
+    -Fun
+
+    -Hunger'
+  header: 
 --- !u!1 &5352072745568633329
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,6 +639,7 @@ GameObject:
   - component: {fileID: 1701579940931068189}
   - component: {fileID: 7220679418934173254}
   - component: {fileID: 4911002077354576718}
+  - component: {fileID: 4248481209962130300}
   m_Layer: 5
   m_Name: game_subtask
   m_TagString: Untagged
@@ -732,6 +775,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interaction: {fileID: 11400000, guid: 44895d88281433146b4b28066ea24e7b, type: 2}
   _interactableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &4248481209962130300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352072745568633329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: '+Fun
+
+    -Hunger
+
+    -Energy'
+  header: 
 --- !u!1 &7717065839597804789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,3 +1111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  SubTaskPanel: {fileID: 0}
