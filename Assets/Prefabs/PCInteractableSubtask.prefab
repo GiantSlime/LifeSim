@@ -33,12 +33,13 @@ RectTransform:
   - {fileID: 2008116168432984059}
   - {fileID: 2963391737504620558}
   - {fileID: 1185109373956170841}
+  - {fileID: 4898622391826736428}
   m_Father: {fileID: 8842807308272103365}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5011, y: -75}
-  m_SizeDelta: {x: 562.405, y: 150}
+  m_AnchoredPosition: {x: 0.2976, y: -93.6}
+  m_SizeDelta: {x: 613.992, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1470863483943306777
 CanvasRenderer:
@@ -113,10 +114,10 @@ RectTransform:
   - {fileID: 3866940647899895950}
   m_Father: {fileID: 6914114034837804751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -103.7, y: -8.4}
-  m_SizeDelta: {x: 100, y: 30.1115}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 185.6, y: 6.3}
+  m_SizeDelta: {x: 106.137695, y: 20.4423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &781036752466970100
 CanvasRenderer:
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febc2d90c0dbae24faa64d4e2dc5c35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Interaction: {fileID: 11400000, guid: ef392e08af460b849abca3b33378fae2, type: 2}
+  Interaction: {fileID: 11400000, guid: a2f4fcd1e3be5454e863b1c279bbeac5, type: 2}
   _interactableSubTaskController: {fileID: 8652780113714455680}
 --- !u!1 &1433006645892640327
 GameObject:
@@ -318,8 +319,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -387,15 +388,15 @@ RectTransform:
   m_GameObject: {fileID: 1848648090989163888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.7561586, y: 2.7561586, z: 2.7561586}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8842807308272103365}
+  m_Father: {fileID: 6914114034837804751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -215.5, y: -75.5}
-  m_SizeDelta: {x: 40, y: 48}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 64.3769, y: 0.2677}
+  m_SizeDelta: {x: 115.9236, y: 139.1082}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2712847221243457181
 CanvasRenderer:
@@ -470,10 +471,10 @@ RectTransform:
   - {fileID: 7078829076437088217}
   m_Father: {fileID: 6914114034837804751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102.4, y: 52.7}
-  m_SizeDelta: {x: 100, y: 25.2602}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 185.6, y: 56.4}
+  m_SizeDelta: {x: 106.137695, y: 20.4423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7901265673972015952
 CanvasRenderer:
@@ -581,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febc2d90c0dbae24faa64d4e2dc5c35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Interaction: {fileID: 11400000, guid: ef392e08af460b849abca3b33378fae2, type: 2}
+  Interaction: {fileID: 11400000, guid: 8a0b2b7ebe1867845b5d05a258a0ad48, type: 2}
   _interactableSubTaskController: {fileID: 8652780113714455680}
 --- !u!1 &5352072745568633329
 GameObject:
@@ -618,10 +619,10 @@ RectTransform:
   - {fileID: 8272525965548779813}
   m_Father: {fileID: 6914114034837804751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -103.5, y: 23}
-  m_SizeDelta: {x: 100, y: 26.9036}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 185.6, y: 31.1}
+  m_SizeDelta: {x: 106.137695, y: 20.4423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6772056321706167199
 CanvasRenderer:
@@ -729,7 +730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febc2d90c0dbae24faa64d4e2dc5c35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Interaction: {fileID: 11400000, guid: ef392e08af460b849abca3b33378fae2, type: 2}
+  Interaction: {fileID: 11400000, guid: 44895d88281433146b4b28066ea24e7b, type: 2}
   _interactableSubTaskController: {fileID: 8652780113714455680}
 --- !u!1 &7717065839597804789
 GameObject:
@@ -823,8 +824,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -930,7 +931,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Chat
+  m_text: Chat...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a70e79886c515b043b483ea3bf4995c6, type: 2}
   m_sharedMaterial: {fileID: -8287131316716816244, guid: a70e79886c515b043b483ea3bf4995c6, type: 2}
@@ -957,8 +958,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1029,7 +1030,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6914114034837804751}
-  - {fileID: 4898622391826736428}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
