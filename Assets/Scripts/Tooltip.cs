@@ -24,6 +24,9 @@ public class Tooltip : MonoBehaviour
 		var normalizedPosition = new Vector2(position.x / Screen.width, position.y / Screen.height);
 		var pivot = CalculatePivot(normalizedPosition);
 		rectTransform.pivot = pivot;
+
+		if (pivot.x < 0) position.x += 15;
+
 		transform.position = position;
 	}
 
