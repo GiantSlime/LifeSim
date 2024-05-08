@@ -10,6 +10,11 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
 	public string header;
 
+	public void OnDestroy()
+	{
+		TooltipSystem.Hide();
+	}
+
 	public void OnPointerEnter(PointerEventData eventData)
 	{
 		Debug.Log("TootipTrigger:OnPointerEnter");

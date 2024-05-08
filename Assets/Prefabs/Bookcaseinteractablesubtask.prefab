@@ -728,7 +728,7 @@ GameObject:
   - component: {fileID: 7257928575020423614}
   - component: {fileID: 7870564619768544838}
   - component: {fileID: 8729188620941892222}
-  - component: {fileID: 377432019195968666}
+  - component: {fileID: 2038580275137110984}
   m_Layer: 5
   m_Name: ReadSubTask
   m_TagString: Untagged
@@ -864,6 +864,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SubGroup: {fileID: 7886172270333903894}
   InteractableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &2038580275137110984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5320007131818871137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Read a book
+  header: Read a book
 --- !u!1 &7886172270333903894
 GameObject:
   m_ObjectHideFlags: 0
