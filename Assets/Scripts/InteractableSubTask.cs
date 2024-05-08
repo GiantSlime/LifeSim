@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class InteractableSubTask : MonoBehaviour
 {
-    public InteractionScriptableObject Interaction;
-
-	public InteractableSubTaskController _interactableSubTaskController;
+	public GameObject SubGroup;
+	public InteractableSubTaskController InteractableSubTaskController;
 
 	public void SubTask_OnClick() 
 	{
-		if (Interaction.HasMaximumTime)
-			Interaction.CurrentMaximumTime = Interaction.MaximumTime;
-		_interactableSubTaskController.TriggerInteraction(Interaction);
+		InteractableSubTaskController.DisableActiveSubGroup();
+		InteractableSubTaskController.EnableActiveSubGroup(SubGroup);
 	}
 
 }
