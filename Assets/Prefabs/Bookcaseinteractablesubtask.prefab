@@ -728,6 +728,7 @@ GameObject:
   - component: {fileID: 7257928575020423614}
   - component: {fileID: 7870564619768544838}
   - component: {fileID: 8729188620941892222}
+  - component: {fileID: 377432019195968666}
   m_Layer: 5
   m_Name: ReadSubTask
   m_TagString: Untagged
