@@ -7,6 +7,7 @@ public class InteractableBase : MonoBehaviour
 {
 	public bool IsInteractable = true;
 	private SpriteRenderer _spriteRenderer;
+	private PlayerController _playerController;
 
 	public Sprite DefaultSprite;
 	public Sprite InteractedSprite;
@@ -33,6 +34,7 @@ public class InteractableBase : MonoBehaviour
 	void Start()
 	{
 		_spriteRenderer = GetComponent<SpriteRenderer>();
+		_playerController = FindObjectOfType<PlayerController>();
 	}
 
 	// Update is called once per frame
@@ -43,18 +45,12 @@ public class InteractableBase : MonoBehaviour
 
 	public void OnTriggerEnter2D(Collider2D collision)
 	{
-		var playerController = collision.GetComponent<PlayerController>();
-		if (playerController == null) return;
-
 		// Event when player enters this object
 		
 	}
 
 	public void OnTriggerExit2D(Collider2D collision)
 	{
-		var playerController = collision.GetComponent<PlayerController>();
-		if (playerController == null) return;
-
 		// Event when player leaves this object
 		
 	}
@@ -78,5 +74,31 @@ public class InteractableBase : MonoBehaviour
 
 			_spriteRenderer.sprite = DefaultSprite;
 		}
+	}
+
+	public void OnMouseEnter()
+	{
+		IsActiveInteractable = true;
+	}
+
+	public void OnMouseOver()
+	{
+		IsActiveInteractable = true;
+	}
+
+	public void OnMouseExit()
+	{
+		IsActiveInteractable = false;
+	}
+
+	public void OnMouseDown()
+	{
+		if (_playerController == null)
+		{
+			Debug.Log("Player controller is null. Cannot resolve MouseDown event");
+			return;
+		}
+
+		_playerController.MovePlayerTo(this.transform.position);
 	}
 }

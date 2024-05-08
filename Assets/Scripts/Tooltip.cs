@@ -58,7 +58,7 @@ public class Tooltip : MonoBehaviour
 	public void SetText(string content, string header = "")
 	{
 		headerField.gameObject.SetActive(!string.IsNullOrEmpty(header));
-		headerField.text = content;
+		headerField.text = header;
 
 		contentField.text = content;
 	}

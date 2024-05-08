@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class PlayerController : MonoBehaviour
 {
@@ -67,6 +68,36 @@ public class PlayerController : MonoBehaviour
 			return;
 		}
 
+		if (IsAutomoving)
+		{
+			if (AutomovePosition == null) 
+			{
+				Debug.Log("No automove position is set. Stopping automove.");
+				IsAutomoving = false;
+			}
+			else if (Math.Abs(transform.position.x - AutomovePosition.Value.x) < 0.2)
+			{
+				IsAutomoving = false;
+				AutomovePosition = null;
+
+				_rigidBody.velocity = Vector3.zero;
+
+				if (_currentActiveInteractable != null)
+				{
+					Debug.Log($"Interacting with {_currentActiveInteractable.gameObject.name}.");
+					_interactMenu = Instantiate(_currentActiveInteractable.InteractionMenu, SubTaskCenter.transform, false);
+					_subTaskController = _interactMenu.GetComponent<InteractableSubTaskController>();
+					_subTaskController.Player = this;
+
+					_isInteracting = true;
+				}
+
+				SetPlayerWalkingAnimation(false);
+			}
+
+			return;
+		}
+
 		int deltaMove = 0;
 
 		if (Input.GetKey(KeyCode.A) && !_isTouchingLeftWall) // Could be mapped to movement keys
@@ -87,31 +118,23 @@ public class PlayerController : MonoBehaviour
 			SetPlayerAnimationDirection(deltaMove);
 		}
 
+		var horizontalMoveDistance = deltaMove * GetPlayerMovementSpeed();
+		_rigidBody.velocity = new Vector3(horizontalMoveDistance, 0f, 0f);
+	}
+
+	private float GetPlayerMovementSpeed()
+	{
 		var movementSpeedModifier = 1f;
 		if (StatusController.HasBadStatus())
 		{
 			movementSpeedModifier -= 0.5f;
 		}
 
-		var horizontalMoveDistance = deltaMove * MovementSpeed * movementSpeedModifier;
-		_rigidBody.velocity = new Vector3(horizontalMoveDistance, 0f, 0f);
+		return MovementSpeed * movementSpeedModifier;
 	}
 
 	private bool _isTouchingRightWall = false;
 	private bool _isTouchingLeftWall = false;
-	public void OnTriggerEnter(Collider other)
-	{
-		Debug.Log("Player:OnTriggerEnter");
-		switch (other.tag)
-		{
-			case "RightWall":
-				_isTouchingRightWall = true;
-				return;
-			case "LeftWall":
-				_isTouchingLeftWall = true;
-				return;			
-		}
-	}
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
 		Debug.Log("Player:OnCollisionEnter2D");
@@ -122,19 +145,6 @@ public class PlayerController : MonoBehaviour
 				return;
 			case "LeftWall":
 				_isTouchingLeftWall = true;
-				return;
-		}
-	}
-	public void OnTriggerExit(Collider other)
-	{
-		Debug.Log("Player:OnTriggerExit");
-		switch (other.tag)
-		{
-			case "RightWall":
-				_isTouchingRightWall = false;
-				return;
-			case "LeftWall":
-				_isTouchingLeftWall = false;
 				return;
 		}
 	}
@@ -151,6 +161,40 @@ public class PlayerController : MonoBehaviour
 				return;
 		}
 	}
+
+	public bool IsAutomoving = false;
+	
+	public Vector2? AutomovePosition = null;
+	public void MovePlayerTo(Vector2 pos)
+	{
+		if (_isInteracting) return;
+
+		RecalculateAutomove(pos);
+	}
+	private void RecalculateAutomove(Vector2 pos)
+	{
+		if (Math.Abs(transform.position.x - pos.x) < 0.2) // if we are 0.1 close
+		{
+			IsAutomoving = false;
+			AutomovePosition = null;
+		}
+        else
+        {
+			IsAutomoving = true;
+			AutomovePosition = pos;
+			var deltaMove = (transform.position.x < pos.x ? 1 : -1);
+			_rigidBody.velocity = new Vector3(deltaMove * GetPlayerMovementSpeed(), 0, 0);
+
+			SetPlayerWalkingAnimation(deltaMove != 0);
+
+			// Check player facing direction
+			if (deltaMove != 0 && deltaMove != _playerDirectionFacing)
+			{
+				_playerDirectionFacing = deltaMove;
+				SetPlayerAnimationDirection(deltaMove);
+			}
+		}
+    }
 
 	private void SetPlayerWalkingAnimation(bool isWalking)
 	{
