@@ -15,7 +15,8 @@ MonoBehaviour:
   Name: Quickfood
   Energy: -5
   Fun: -5
-  Hunger: 30
+  Hunger: 25
   HasMaximumTime: 1
   MaximumTime: 60
   CurrentMaximumTime: 0
+  Money: 0
