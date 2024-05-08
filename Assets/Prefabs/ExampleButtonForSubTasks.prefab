@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3230489051427937513}
   - component: {fileID: 2682997055036878855}
   - component: {fileID: 2092837982625021494}
+  - component: {fileID: -6911155706164030295}
   m_Layer: 5
   m_Name: ExampleButtonForSubTasks
   m_TagString: Untagged
@@ -121,7 +122,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3230489051427937513}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6911155706164030295}
+        m_TargetAssemblyTypeName: InteractableSubTask, Assembly-CSharp
+        m_MethodName: SubTask_OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2092837982625021494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +149,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: Example Button Content
   header: Example Button Header
+--- !u!114 &-6911155706164030295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532796279746534572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: febc2d90c0dbae24faa64d4e2dc5c35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SubGroup: {fileID: 0}
+  InteractableSubTaskController: {fileID: 0}
 --- !u!1 &4986015735821467096
 GameObject:
   m_ObjectHideFlags: 0

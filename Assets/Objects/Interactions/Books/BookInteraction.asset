@@ -19,3 +19,4 @@ MonoBehaviour:
   HasMaximumTime: 0
   MaximumTime: 0
   CurrentMaximumTime: 0
+  Money: 0

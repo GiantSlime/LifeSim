@@ -65,10 +65,10 @@ public class StatusController : MonoBehaviour
 		FunBarSlider.value = FunLevel;
 		HungerBarSlider.value = HungerLevel;
 
-		if (interaction.MoneyCost > 0)
+		if (interaction.Money > 0)
 		{
-			Debug.Log($"{interaction.MoneyCost} {Money}");
-			Money += interaction.MoneyCost * interactionTimeSpent;
+			Debug.Log($"{interaction.Money} {Money}");
+			Money += interaction.Money * interactionTimeSpent;
 		}
 	}
 
@@ -82,8 +82,8 @@ public class StatusController : MonoBehaviour
 
 	public bool CanInteract(InteractionScriptableObject interaction)
 	{
-		if (interaction.MoneyCost > 0) return true;
+		if (interaction.Money > 0) return true;
 		else 
-			return Money >= -1 * interaction.MoneyCost;
+			return Money >= -1 * interaction.Money;
 	}
 }

@@ -25,9 +25,12 @@ public class PlayerController : MonoBehaviour
 
 	List<Animator> _playerAnimators = new List<Animator>();
 
+	private Rigidbody2D _rigidBody;
+
 	// Start is called before the first frame update
 	void Start()
 	{
+		_rigidBody = GetComponent<Rigidbody2D>();
 		_playerAnimators.Add(Base.GetComponent<Animator>());
 		_playerAnimators.Add(Shirt.GetComponent<Animator>());
 		_playerAnimators.Add(Shoes.GetComponent<Animator>());
@@ -66,11 +69,11 @@ public class PlayerController : MonoBehaviour
 
 		int deltaMove = 0;
 
-		if (Input.GetKey(KeyCode.A)) // Could be mapped to movement keys
+		if (Input.GetKey(KeyCode.A) && !_isTouchingLeftWall) // Could be mapped to movement keys
 		{
 			deltaMove -= 1;
 		}
-		if (Input.GetKey(KeyCode.D)) // Could be mapped to movement keys
+		if (Input.GetKey(KeyCode.D) && !_isTouchingRightWall) // Could be mapped to movement keys
 		{
 			deltaMove += 1;
 		}
@@ -90,8 +93,63 @@ public class PlayerController : MonoBehaviour
 			movementSpeedModifier -= 0.5f;
 		}
 
-		var horizontalMoveDistance = deltaMove * MovementSpeed * movementSpeedModifier * Time.deltaTime;
-		transform.position += new Vector3(horizontalMoveDistance, 0f, 0f);
+		var horizontalMoveDistance = deltaMove * MovementSpeed * movementSpeedModifier;
+		_rigidBody.velocity = new Vector3(horizontalMoveDistance, 0f, 0f);
+	}
+
+	private bool _isTouchingRightWall = false;
+	private bool _isTouchingLeftWall = false;
+	public void OnTriggerEnter(Collider other)
+	{
+		Debug.Log("Player:OnTriggerEnter");
+		switch (other.tag)
+		{
+			case "RightWall":
+				_isTouchingRightWall = true;
+				return;
+			case "LeftWall":
+				_isTouchingLeftWall = true;
+				return;			
+		}
+	}
+	public void OnCollisionEnter2D(Collision2D collision)
+	{
+		Debug.Log("Player:OnCollisionEnter2D");
+		switch (collision.gameObject.tag)
+		{
+			case "RightWall":
+				_isTouchingRightWall = true;
+				return;
+			case "LeftWall":
+				_isTouchingLeftWall = true;
+				return;
+		}
+	}
+	public void OnTriggerExit(Collider other)
+	{
+		Debug.Log("Player:OnTriggerExit");
+		switch (other.tag)
+		{
+			case "RightWall":
+				_isTouchingRightWall = false;
+				return;
+			case "LeftWall":
+				_isTouchingLeftWall = false;
+				return;
+		}
+	}
+	public void OnCollisionExit2D(Collision2D collision)
+	{
+		Debug.Log("Player:OnCollisionExit2D");
+		switch (collision.gameObject.tag)
+		{
+			case "RightWall":
+				_isTouchingRightWall = false;
+				return;
+			case "LeftWall":
+				_isTouchingLeftWall = false;
+				return;
+		}
 	}
 
 	private void SetPlayerWalkingAnimation(bool isWalking)
@@ -209,8 +267,8 @@ public class PlayerController : MonoBehaviour
 	{
 		Debug.Log($"StartInteracting({interaction.name})");
 		_interaction = interaction;
-		if (interaction.MoneyCost < 0) 
-			StatusController.AcceptCost(interaction.MoneyCost);
+		if (interaction.Money < 0)
+			StatusController.AcceptCost(interaction.Money);
 		TimeController.OnGameTick += Interact_OnGameTick;
 		_subTaskController = null;
 		Destroy(_interactMenu);
