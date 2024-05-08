@@ -7,6 +7,11 @@ public class InteractableSubTaskController : MonoBehaviour
 {
 	public PlayerController Player;
 
+	private void Awake()
+	{
+		Player = FindObjectOfType<PlayerController>();
+	}
+
 	public void Start()
 	{
 		var subtasks = GetComponentsInChildren<InteractableSubTaskOption>(includeInactive:true);

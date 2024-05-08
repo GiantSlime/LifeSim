@@ -78,16 +78,22 @@ public class InteractableBase : MonoBehaviour
 
 	public void OnMouseEnter()
 	{
+		if (_playerController.IsInteracting) return;
+
 		IsActiveInteractable = true;
 	}
 
 	public void OnMouseOver()
 	{
+		if (_playerController.IsInteracting) return;
+
 		IsActiveInteractable = true;
 	}
 
 	public void OnMouseExit()
 	{
+		if (_playerController.IsInteracting) return;
+
 		IsActiveInteractable = false;
 	}
 
@@ -98,6 +104,7 @@ public class InteractableBase : MonoBehaviour
 			Debug.Log("Player controller is null. Cannot resolve MouseDown event");
 			return;
 		}
+		if (_playerController.IsInteracting) return;
 
 		_playerController.MovePlayerTo(this.transform.position);
 	}

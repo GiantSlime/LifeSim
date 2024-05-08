@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
 	public GameObject SubTaskCenter;
 	public TimeController TimeController;
 
-	private bool _isInteracting = false;
+	public bool IsInteracting = false;
+	public bool IsExploring = false;
 
 	public GameObject Base;
 	public GameObject Shirt;
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
 	private void MovementUpdate()
 	{
 		// Can't move while interacting.
-		if (_isInteracting)
+		if (IsInteracting)
 		{
 			return;
 		}
@@ -89,12 +90,16 @@ public class PlayerController : MonoBehaviour
 					_subTaskController = _interactMenu.GetComponent<InteractableSubTaskController>();
 					_subTaskController.Player = this;
 
-					_isInteracting = true;
+					IsInteracting = true;
 				}
 
 				SetPlayerWalkingAnimation(false);
 			}
 
+			return;
+		}
+
+		if (IsExploring) {
 			return;
 		}
 
@@ -167,7 +172,7 @@ public class PlayerController : MonoBehaviour
 	public Vector2? AutomovePosition = null;
 	public void MovePlayerTo(Vector2 pos)
 	{
-		if (_isInteracting) return;
+		if (IsInteracting && !IsExploring) return;
 
 		RecalculateAutomove(pos);
 	}
@@ -177,6 +182,16 @@ public class PlayerController : MonoBehaviour
 		{
 			IsAutomoving = false;
 			AutomovePosition = null;
+
+			if (_currentActiveInteractable != null)
+			{
+				Debug.Log($"Interacting with {_currentActiveInteractable.gameObject.name}.");
+				_interactMenu = Instantiate(_currentActiveInteractable.InteractionMenu, SubTaskCenter.transform, false);
+				_subTaskController = _interactMenu.GetComponent<InteractableSubTaskController>();
+				_subTaskController.Player = this;
+
+				IsInteracting = true;
+			}
 		}
         else
         {
@@ -195,6 +210,11 @@ public class PlayerController : MonoBehaviour
 			}
 		}
     }
+
+	public void SetPlayerPositionTo(Vector2 position)
+	{
+		transform.position = new Vector3(position.x, position.y, -0.5f);
+	}
 
 	private void SetPlayerWalkingAnimation(bool isWalking)
 	{
@@ -263,7 +283,12 @@ public class PlayerController : MonoBehaviour
 	private InteractableSubTaskController _subTaskController = null;
 	private void InputUpdate()
 	{
-		if (_isInteracting)
+		if (IsExploring)
+		{
+			return;
+		}
+
+		if (IsInteracting)
 		{
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
@@ -286,7 +311,7 @@ public class PlayerController : MonoBehaviour
 			_subTaskController = _interactMenu.GetComponent<InteractableSubTaskController>();
 			_subTaskController.Player = this;
 
-			_isInteracting = true;
+			IsInteracting = true;
 		}
 	}
 
@@ -325,7 +350,7 @@ public class PlayerController : MonoBehaviour
 		TimeController.OnGameTick -= Interact_OnGameTick;
 		StatusController.ResetInteraction();
 		_interaction = null;
-		_isInteracting = false;
+		IsInteracting = false;
 		_subTaskController = null;
 		Destroy(_interactMenu);
 		_interactMenu = null;
