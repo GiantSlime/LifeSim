@@ -279,6 +279,7 @@ public class PlayerController : MonoBehaviour
 	{
 		Debug.Log("StopInteracting()");
 		TimeController.OnGameTick -= Interact_OnGameTick;
+		StatusController.ResetInteraction();
 		_interaction = null;
 		_isInteracting = false;
 		_subTaskController = null;

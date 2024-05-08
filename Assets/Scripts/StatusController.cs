@@ -35,6 +35,7 @@ public class StatusController : MonoBehaviour
 		Money += cost;
 	}
 
+
 	public void Interact(InteractionScriptableObject interaction, int time)
 	{
 		Debug.Log($"Interact(interaction:{interaction.name}, time:{time})");
@@ -65,11 +66,21 @@ public class StatusController : MonoBehaviour
 		FunBarSlider.value = FunLevel;
 		HungerBarSlider.value = HungerLevel;
 
+		_timeSpentInteracting += time;
+		if (_timeSpentInteracting < 60) return;
+
 		if (interaction.Money > 0)
 		{
-			Debug.Log($"{interaction.Money} {Money}");
-			Money += interaction.Money * interactionTimeSpent;
+			Money += interaction.Money;
 		}
+
+		_timeSpentInteracting = 0;
+	}
+
+	private int _timeSpentInteracting = 0;
+	public void ResetInteraction()
+	{
+		_timeSpentInteracting = 0;
 	}
 
 	public bool HasBadStatus()
