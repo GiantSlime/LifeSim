@@ -18,6 +18,7 @@ public class InventoryController : MonoBehaviour
 	public List<Button> InventoryItems = new List<Button>();
 
 	public bool IsInventorying => _isInventoryOpened;
+	public BuildController BuildController;
 
 	private void Start()
 	{
@@ -35,11 +36,7 @@ public class InventoryController : MonoBehaviour
 
 		if (_isInventoryOpened)
 		{
-			CreateInventoryItemButtons();
-		}
-		else
-		{
-			InventoryItems.ForEach(x => Destroy(x));
+			ReloadInventory();
 		}
 	}
 
@@ -64,13 +61,51 @@ public class InventoryController : MonoBehaviour
 			Debug.Log($"Creating item number: {i}, at x:{x},y:{y}, column:{column},row:{row}, a:{_inventoryWindowWidth},b:{_inventoryWindowWidth / NumberOfItemsPerRow}");
 
 			var itemObject = Instantiate(DummyItemButton, InventoryWindow.transform.position + new Vector3(x, y, 0), Quaternion.identity, InventoryWindow.transform);
-			DummyItemButton.image.sprite = item.Sprite;
+			itemObject.image.sprite = item.Sprite;
+			itemObject.onClick.AddListener(() => ItemClicked(item));
 			InventoryItems.Add(itemObject);
+		}
+	}
+
+	public void ReloadInventory()
+	{
+		Debug.Log("ReloadInventory");
+		InventoryItems.ForEach(x => Destroy(x.gameObject));
+		CreateInventoryItemButtons();
+	}
+
+	private ItemScriptableObject _activeItem;
+	public void ItemClicked(ItemScriptableObject item)
+	{
+		if (item == null)
+		{
+			Debug.Log("ItemClicked: Null item was passed as an argument.");
+			return;
+		}
+		if (_activeItem == item)
+		{
+			Debug.Log("ItemClicked: Active item is same as item clicked. Unsetting item as active");
+			BuildController.UnsetCurrentActiveItem();
+			_activeItem = null;
+		}
+		else
+		{
+			Debug.Log("ItemClicked: Active item is different than item clicked. Changing active item.");
+			_activeItem = item;
+			BuildController.SetCurrentActiveItem(_activeItem);
 		}
 	}
 
 	public void AddItem(ItemScriptableObject item)
 	{
 		Inventory.Add(item);
+		ReloadInventory();
+	}
+
+	public void ItemPlaced(ItemScriptableObject item) 
+	{
+		Debug.Log("ItemPlaced: Removing item from inventory");
+		Inventory.Remove(item);
+		ReloadInventory();
 	}
 }
