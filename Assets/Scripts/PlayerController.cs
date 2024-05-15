@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
 	public bool IsInteracting = false;
 	public bool IsExploring = false;
+	public bool IsInventorying => InventoryController?.IsInventorying ?? false;
 
 	public GameObject Base;
 	public GameObject Shirt;
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour
 	List<Animator> _playerAnimators = new List<Animator>();
 
 	private Rigidbody2D _rigidBody;
+
+	public InventoryController InventoryController;
 
 	// Start is called before the first frame update
 	void Start()
@@ -64,7 +67,7 @@ public class PlayerController : MonoBehaviour
 	private void MovementUpdate()
 	{
 		// Can't move while interacting.
-		if (IsInteracting)
+		if (IsInteracting || IsInventorying)
 		{
 			return;
 		}

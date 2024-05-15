@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/InteractionScriptableObject", order = 1)]
+[CreateAssetMenu(fileName = "Interaction", menuName = "ScriptableObjects/InteractionScriptableObject", order = 1)]
 public class InteractionScriptableObject : ScriptableObject
 {
 	public string Name;

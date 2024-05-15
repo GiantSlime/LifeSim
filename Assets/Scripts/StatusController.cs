@@ -34,7 +34,14 @@ public class StatusController : MonoBehaviour
 	{
 		Money += cost;
 	}
-
+	public void SubtractCost(float cost) 
+	{
+		Money -= cost;
+	}
+	public bool CanAffordCost(float cost)
+	{
+		return Money >= cost;
+	}
 
 	public void Interact(InteractionScriptableObject interaction, int time)
 	{
