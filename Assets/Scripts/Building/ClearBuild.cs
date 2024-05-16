@@ -11,9 +11,17 @@ public class ClearBuild : MonoBehaviour
 
 	private BuildSlot _parentBuildSlot;
 
+	private SpriteRenderer _renderer;
+
 	public void Start()
 	{
 		_parentBuildSlot = GetComponentInParent<BuildSlot>();
+		_renderer = GetComponent<SpriteRenderer>();
+	}
+
+	public void OnEnable()
+	{
+		_renderer.sprite = DefaultSprite;
 	}
 
 	public void OnMouseDown()
@@ -28,11 +36,11 @@ public class ClearBuild : MonoBehaviour
 
 	public void OnMouseEnter()
 	{
-
+		_renderer.sprite = HighlightedSprite;
 	}
 
 	private void OnMouseExit()
 	{
-
+		_renderer.sprite = DefaultSprite;
 	}
 }

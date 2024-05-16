@@ -13,9 +13,9 @@ public class ShopController : MonoBehaviour
     public InventoryController InventoryController;
     public StatusController StatusController;
 
-	public List<ItemSale> ItemsList = new();
+	public static List<ItemSale> ItemsList;
 
-    [HideInInspector]
+	[HideInInspector]
     public List<Button> ItemSaleButtonList = new();
     public List<ItemSale> ItemSaleList = new();
 
@@ -87,7 +87,7 @@ public class ShopController : MonoBehaviour
         // Randomly select using the remaining items up to MaximumItemsToLoad
 		Random.InitState(TimeController.Day);
 		var itemsToLoad = new List<ItemSale>();
-        for (int i = 0; i < Mathf.Min(MaximumItemsToLoad, ItemsList.Count); i++)
+        for (int i = 0; i < Mathf.Min(MaximumItemsToLoad, itemsList.Count); i++)
         {
             var itemIndex = Random.Range(0, itemsList.Count);
             var item = itemsList[itemIndex];
@@ -146,6 +146,8 @@ public class ShopController : MonoBehaviour
         var itemSale = ItemSaleList[index];
 
         ItemSaleButtonList[index].interactable = false;
+
+        ItemsList.Remove(itemSale);
 
         StatusController.SubtractCost(itemSale.Cost);
 

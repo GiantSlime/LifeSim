@@ -77,4 +77,14 @@ public class BuildSlot : MonoBehaviour
 
         OnBuildSlotClear.Invoke(this, null);
     }
+
+    public void OnItemPlaced()
+    {
+        ItemSpriteRenderer.enabled = true;
+    }
+
+    public void OnItemRemoved()
+    {
+        ItemSpriteRenderer.enabled = false;
+	}
 }

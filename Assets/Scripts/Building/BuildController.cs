@@ -76,6 +76,7 @@ public class BuildController : MonoBehaviour
 		buildSlot.Item = _activeItem;
 		buildSlot.ItemSpriteRenderer.sprite = _activeItem.Sprite;
 		buildSlot.ClearBuild.gameObject.SetActive(true);
+        buildSlot.OnItemPlaced();
 	}
 
     private void HighlightValidBuildSlotsForActiveItem()
@@ -111,5 +112,7 @@ public class BuildController : MonoBehaviour
         InventoryController.AddItem(item);
 
         slot.ClearBuild.gameObject.SetActive(false);
+
+        slot.OnItemRemoved();
 	}
 }

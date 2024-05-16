@@ -929,13 +929,12 @@ MonoBehaviour:
   TimeController: {fileID: 0}
   InventoryController: {fileID: 0}
   StatusController: {fileID: 0}
-  ItemsList:
-  - Item: {fileID: 11400000, guid: 5d93e47b18ae4d24c936a39971b0ed73, type: 2}
+  ItemSaleButtonList: []
+  ItemSaleList:
+  - Item: {fileID: 11400000, guid: 288287ede7257884bbd151bfa2038572, type: 2}
     Cost: 10
   - Item: {fileID: 11400000, guid: 5d93e47b18ae4d24c936a39971b0ed73, type: 2}
-    Cost: 100
-  ItemSaleButtonList: []
-  ItemSaleList: []
+    Cost: 10
   MaximumItemsToLoad: 8
   NumberOfItemsPerRow: 4
   NumberOfRowsPerPage: 2

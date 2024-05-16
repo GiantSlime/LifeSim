@@ -71,6 +71,7 @@ public class InventoryController : MonoBehaviour
 	{
 		Debug.Log("ReloadInventory");
 		InventoryItems.ForEach(x => Destroy(x.gameObject));
+		InventoryItems.Clear();
 		CreateInventoryItemButtons();
 	}
 
@@ -106,6 +107,7 @@ public class InventoryController : MonoBehaviour
 	{
 		Debug.Log("ItemPlaced: Removing item from inventory");
 		Inventory.Remove(item);
+		_activeItem = null;
 		ReloadInventory();
 	}
 }
