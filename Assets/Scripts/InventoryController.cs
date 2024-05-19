@@ -9,6 +9,7 @@ public class InventoryController : MonoBehaviour
 	public List<ItemScriptableObject> Inventory = new List<ItemScriptableObject>();
 
 	public GameObject InventoryWindow;
+	public Button InventoryButton;
 
 	public Button DummyItemButton;
 
@@ -20,19 +21,29 @@ public class InventoryController : MonoBehaviour
 	public bool IsInventorying => _isInventoryOpened;
 	public BuildController BuildController;
 
+	public PlayerController PlayerController;
+
 	private void Start()
 	{
 		var windowRect = InventoryWindow.GetComponent<RectTransform>().rect;
 		_inventoryWindowWidth = windowRect.width * 2;
 		_inventoryWindowHeight = windowRect.height * 2;
 		Debug.Log($"Window width:{_inventoryWindowWidth}, height:{_inventoryWindowHeight}");
+
+		PlayerController = FindObjectOfType<PlayerController>();
 	}
 
 	private bool _isInventoryOpened = false;
 	public void ToggleInventoryWindow()
 	{
-		InventoryWindow.SetActive(!_isInventoryOpened);
+		if (PlayerController.IsInteracting) 
+		{
+			Debug.Log("Player is interacting; unable to open inventory");
+			return;
+		}
+
 		_isInventoryOpened = !_isInventoryOpened;
+		InventoryWindow.SetActive(_isInventoryOpened);
 
 		if (_isInventoryOpened)
 		{

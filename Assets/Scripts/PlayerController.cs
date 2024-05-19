@@ -16,7 +16,17 @@ public class PlayerController : MonoBehaviour
 	public GameObject SubTaskCenter;
 	public TimeController TimeController;
 
-	public bool IsInteracting = false;
+	public bool _isInteracting = false;
+	public bool IsInteracting
+	{
+		get { return _isInteracting; }
+		set
+		{
+			_isInteracting = value;
+			InventoryController.InventoryButton.interactable = !value;
+		}
+	}
+
 	public bool IsExploring = false;
 	public bool IsInventorying => InventoryController?.IsInventorying ?? false;
 
@@ -62,13 +72,26 @@ public class PlayerController : MonoBehaviour
 		Pants.GetComponent<Animator>().runtimeAnimatorController = (RuntimeAnimatorController)data["PantsAC"];
 	}
 
-	bool _isPlayerMoving = false;
 	int _playerDirectionFacing = 1; // -1 left : 1 right
 	private void MovementUpdate()
 	{
 		// Can't move while interacting.
-		if (IsInteracting || IsInventorying)
+		if (IsInteracting )
 		{
+			return;
+		}
+
+		if (IsInventorying)
+		{
+			if (IsAutomoving)
+			{
+				IsAutomoving = false;
+				AutomovePosition = null;
+				_rigidBody.velocity = Vector3.zero;
+
+				SetPlayerWalkingAnimation(false);
+			}
+
 			return;
 		}
 

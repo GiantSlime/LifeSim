@@ -5067,6 +5067,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8896680625470300553, guid: 3a4e282c84c4e334aa3989745bac2094, type: 3}
   m_PrefabInstance: {fileID: 6532312737931329938}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1647534906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3230221177813058901, guid: 3a4e282c84c4e334aa3989745bac2094, type: 3}
+  m_PrefabInstance: {fileID: 6532312737931329938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1674139480
 GameObject:
   m_ObjectHideFlags: 0
@@ -6527,6 +6538,10 @@ PrefabInstance:
       propertyPath: BuildController
       value: 
       objectReference: {fileID: 1271306183}
+    - target: {fileID: 4783360947190597638, guid: b21bb952ac6d9da448b85a93a007aaef, type: 3}
+      propertyPath: InventoryButton
+      value: 
+      objectReference: {fileID: 1647534906}
     - target: {fileID: 4783360947190597638, guid: b21bb952ac6d9da448b85a93a007aaef, type: 3}
       propertyPath: InventoryWindow
       value: 
