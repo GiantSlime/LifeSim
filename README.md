@@ -5,6 +5,8 @@ TODO LIST
 	perhaps a static class that holds the list as a singleton object that gets fetched by any shop controllers on spawn would be better.
 
 [FIXED][BUG] Shop doesn't spawn multiple items together
+[DONE][FEATURE] Starting Money = Customizable
+	Now customizable under player.statuscontroller.
 [BUG] When you re-clcik shop again -> shouldn't be able to
 [QUESTION] Should you be able to start working once you click on inventory?
 [QUESTION] Should re-clicking a subgroup menu reload or close the menu?
@@ -18,7 +20,6 @@ Possible [BUG]: Shop might be randomly cycling through items, RNG might not be w
 [BUG] Placing an item in a buildslot that has an item, deletes the item instead of swapping them.
 [BUG] There is no X button to exit out of interacting
 [DEFECT] Time should stop while in inventory mode
-[FEATURE] Starting Money = Customizable
 [FEATURE] Player should lose energy levels over time
 [BUG] When player moves over interactable and mouse moves over interactable, can have 2 highlighted interactable objects
 [BUG] When re-clicking shop, attempting to purchase reloaded items, can lead to negative money.

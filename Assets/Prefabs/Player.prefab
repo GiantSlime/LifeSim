@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6958993026129986594}
   - component: {fileID: 18141347432604995}
   - component: {fileID: 7197975014600578921}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2093377644411771094}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.066}
+  m_LocalPosition: {x: 0, y: 0, z: 0.079}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4521066459537522492}
   - component: {fileID: 6647117256085813819}
   - component: {fileID: 7706625407166462369}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 4729345004053797307}
   - component: {fileID: 151977897485432049}
   - component: {fileID: 6932758535305231956}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 3835989907376168332}
   - component: {fileID: 2680560418569662764}
   - component: {fileID: 5718069583116816935}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,15 +371,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e345ab651034b449dd442fa77617b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 5
+  MovementSpeed: 3
   StatusController: {fileID: 3835989907376168332}
   SubTaskCenter: {fileID: 0}
   TimeController: {fileID: 0}
-  Base: {fileID: 7197975014600578921}
-  Shirt: {fileID: 6932758535305231956}
-  Shoes: {fileID: 883516587681128783}
-  Hair: {fileID: 7706625407166462369}
-  Pants: {fileID: 1793029733617980810}
+  IsInteracting: 0
+  IsExploring: 0
+  Base: {fileID: 2093377644411771094}
+  Shirt: {fileID: 2611950529609623378}
+  Shoes: {fileID: 5715851163236290238}
+  Hair: {fileID: 2116953376123690814}
+  Pants: {fileID: 7152291838848801667}
+  InventoryController: {fileID: 0}
+  IsAutomoving: 0
 --- !u!114 &3835989907376168332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +399,7 @@ MonoBehaviour:
   EnergyBarSlider: {fileID: 0}
   FunBarSlider: {fileID: 0}
   HungerBarSlider: {fileID: 0}
+  moneyText: {fileID: 0}
   EnergyLevel: 100
   FunLevel: 100
   HungerLevel: 100
@@ -427,10 +432,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.034192473, y: 0.4957912}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -441,7 +446,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.35034245, y: 1.0113974}
   m_EdgeRadius: 0
 --- !u!50 &5718069583116816935
 Rigidbody2D:
@@ -469,7 +474,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!1 &5715851163236290238
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +486,7 @@ GameObject:
   - component: {fileID: 976279996495012032}
   - component: {fileID: 2427070307487142688}
   - component: {fileID: 883516587681128783}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shoes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +592,7 @@ GameObject:
   - component: {fileID: 6229710128824456268}
   - component: {fileID: 7048489420263981682}
   - component: {fileID: 1793029733617980810}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5453314061291845979}
   - component: {fileID: 4291322772169121154}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: book_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}

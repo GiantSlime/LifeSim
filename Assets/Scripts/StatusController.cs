@@ -14,14 +14,19 @@ public class StatusController : MonoBehaviour
 
 	public TextMeshProUGUI moneyText;
 
-	private float _money;
+	public float _money;
 	public float Money {
 		get => _money;
 		set 
 		{
 			_money = value;
-			moneyText.text = $"${(int)_money}";
+			OnMoneyUpdate();
 		}
+	}
+	public string GetMoneyText => $"${(int)_money}";
+	public void OnMoneyUpdate()
+	{
+		moneyText.text = GetMoneyText;
 	}
 
 	[Range(0, 100)]
@@ -30,6 +35,11 @@ public class StatusController : MonoBehaviour
 	public float FunLevel = 100;
 	[Range(0, 100)]
 	public float HungerLevel = 100;
+
+	public void Start()
+	{
+		OnMoneyUpdate();
+	}
 
 	public void AcceptCost(float cost)
 	{
