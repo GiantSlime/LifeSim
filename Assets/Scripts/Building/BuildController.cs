@@ -69,6 +69,13 @@ public class BuildController : MonoBehaviour
 		// can't place an item in an invalid placement slot
 		if (!buildSlot.CanPlaceItemHere(_activeItem)) return;
 
+        // Check if item is in this build slot already and swap
+        if (buildSlot.Item != null) 
+        {
+            InventoryController.AddItem(buildSlot.Item);
+            buildSlot.Item = null;
+        }
+
         Debug.Log("Setting active item to valid build slot");
         SetActiveItemOnBuildSlot(buildSlot);
 

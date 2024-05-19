@@ -10,14 +10,13 @@ CHANGELOG
 [NOT REALLY FIXED BUT SHOULDNT HAPPEN ANYMORE][BUG] When re-clicking shop, attempting to purchase reloaded items, can lead to negative money.
 [FIXED][BUG] You are able to open inventory whilst interacting
 [FIXED][DEFECT] Time should stop while in inventory mode
-
+[FIXED][BUG] Placing an item in a buildslot that has an item, deletes the item instead of swapping them.
 
 TODO LIST
 
 [BUG] When you re-clcik shop again -> shouldn't be able to
 [FEATURE] Kanna needs to add build slot border thingy
 Possible [BUG]: Shop might be randomly cycling through items, RNG might not be working correctly. Should look into it after spawning multiple items.
-[BUG] Placing an item in a buildslot that has an item, deletes the item instead of swapping them.
 [BUG] There is no X button to exit out of interacting
 [FEATURE] Player should lose energy levels over time
 [BUG] When player moves over interactable and mouse moves over interactable, can have 2 highlighted interactable objects
