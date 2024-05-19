@@ -13,6 +13,8 @@ public class TimeController : MonoBehaviour
     public float TimeSpeed = 1; // How many real life seconds until a tick occurs
     public int TimePassedPerTick = 5; // How many in game minutes pass in a single tick
 
+    public bool IsGameTimePaused = false;
+
     public DateTime time = DateTime.MinValue.AddHours(8); // Game starts at 8am
     public TextMeshProUGUI TimeText;
 
@@ -34,6 +36,9 @@ public class TimeController : MonoBehaviour
 	private float ElapsedTime = 0;
     public void Update()
     {
+        if (IsGameTimePaused)
+            return;
+
         var timeCalculus = TimeSpeed / TimeSpeedModifier;
 
         ElapsedTime += Time.deltaTime;
@@ -69,4 +74,13 @@ public class TimeController : MonoBehaviour
     {
         TimeSpeedModifier = speed;
     }
+
+	public void PauseGameTime()
+	{
+        IsGameTimePaused = true;
+	}
+	public void UnpauseGameTime()
+	{
+        IsGameTimePaused = false;
+	}
 }

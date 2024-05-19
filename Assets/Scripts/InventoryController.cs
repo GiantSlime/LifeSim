@@ -22,6 +22,7 @@ public class InventoryController : MonoBehaviour
 	public BuildController BuildController;
 
 	public PlayerController PlayerController;
+	public TimeController TimeController;
 
 	private void Start()
 	{
@@ -31,6 +32,7 @@ public class InventoryController : MonoBehaviour
 		Debug.Log($"Window width:{_inventoryWindowWidth}, height:{_inventoryWindowHeight}");
 
 		PlayerController = FindObjectOfType<PlayerController>();
+		TimeController = FindObjectOfType<TimeController>();
 	}
 
 	private bool _isInventoryOpened = false;
@@ -51,6 +53,15 @@ public class InventoryController : MonoBehaviour
 		}
 
 		BuildController.SetBuildMode(_isInventoryOpened);
+
+		if (_isInventoryOpened)
+		{
+			TimeController.PauseGameTime();
+		}
+		else
+		{
+			TimeController.UnpauseGameTime();
+		}
 	}
 
 	public const int NumberOfItemsPerRow = 4;
