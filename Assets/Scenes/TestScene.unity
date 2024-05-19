@@ -2142,6 +2142,7 @@ MonoBehaviour:
   TimeSpeedModifier: 10
   TimeSpeed: 1
   TimePassedPerTick: 5
+  IsGameTimePaused: 0
   TimeText: {fileID: 1072243927}
   Day: 1
   DayText: {fileID: 2004935411}
@@ -5798,9 +5799,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 707966384}
     - target: {fileID: 3835989907376168332, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: FunDrainPerHour
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835989907376168332, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
       propertyPath: HungerBarSlider
       value: 
       objectReference: {fileID: 215775649}
+    - target: {fileID: 3835989907376168332, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: EnergyDrainPerHour
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835989907376168332, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: HungerDrainPerHour
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3837152301521167316, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
       propertyPath: m_Name
       value: Player

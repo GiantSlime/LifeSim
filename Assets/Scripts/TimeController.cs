@@ -15,7 +15,9 @@ public class TimeController : MonoBehaviour
 
     public bool IsGameTimePaused = false;
 
-    public DateTime time = DateTime.MinValue.AddHours(8); // Game starts at 8am
+    [Tooltip("The time the day starts in hours (default is 8am)")]
+    public int TimeToStartAtInHours = 8;
+    public DateTime time = DateTime.MinValue;
     public TextMeshProUGUI TimeText;
 
     public int Day = 1;
@@ -27,6 +29,7 @@ public class TimeController : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        time = time.AddHours(TimeToStartAtInHours);
 		OnGameTick += UpdateTime_OnGameTick;
         OnDayCycle += UpdateDay_OnDayCycle;
 		DayText.text = $"Day {Day}";

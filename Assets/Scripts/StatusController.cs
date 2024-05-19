@@ -14,6 +14,8 @@ public class StatusController : MonoBehaviour
 
 	public TextMeshProUGUI moneyText;
 
+	public TimeController TimeController;
+
 	public float _money;
 	public float Money {
 		get => _money;
@@ -36,9 +38,35 @@ public class StatusController : MonoBehaviour
 	[Range(0, 100)]
 	public float HungerLevel = 100;
 
+	public float EnergyDrainPerHour = 0;
+	public float FunDrainPerHour = 0;
+	public float HungerDrainPerHour = 0;
+
 	public void Start()
 	{
+		TimeController = FindObjectOfType<TimeController>();
+		TimeController.OnGameTick += TimeController_OnGameTick;
 		OnMoneyUpdate();
+	}
+
+	private void TimeController_OnGameTick(int timePassed)
+	{
+		Drain(timePassed);
+	}
+
+	private void Drain(int timePassed)
+	{
+		EnergyLevel -= EnergyDrainPerHour * (timePassed / 60f);
+		FunLevel -= FunDrainPerHour * (timePassed / 60f);
+		HungerLevel -= HungerDrainPerHour * (timePassed / 60f);
+		UpdateEnergyBars();
+	}
+
+	private void UpdateEnergyBars()
+	{
+		EnergyBarSlider.value = EnergyLevel;
+		FunBarSlider.value = FunLevel;
+		HungerBarSlider.value = HungerLevel;
 	}
 
 	public void AcceptCost(float cost)
@@ -80,9 +108,7 @@ public class StatusController : MonoBehaviour
 		FunLevel = Math.Max(Math.Min(FunLevel + interaction.Fun * interactionTimeSpent, 100), 0);
 		HungerLevel = Math.Max(Math.Min(HungerLevel + interaction.Hunger * interactionTimeSpent, 100), 0);
 
-		EnergyBarSlider.value = EnergyLevel;
-		FunBarSlider.value = FunLevel;
-		HungerBarSlider.value = HungerLevel;
+		UpdateEnergyBars();
 
 		_timeSpentInteracting += time;
 		if (_timeSpentInteracting < 60) return;
