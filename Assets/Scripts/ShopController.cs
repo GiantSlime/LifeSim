@@ -13,11 +13,9 @@ public class ShopController : MonoBehaviour
     public InventoryController InventoryController;
     public StatusController StatusController;
 
-	public static List<ItemSale> ItemsList;
-
 	[HideInInspector]
     public List<Button> ItemSaleButtonList = new();
-    public List<ItemSale> ItemSaleList = new();
+    private List<ItemSale> _itemSaleList = new();
 
 	public int MaximumItemsToLoad = 8;
     public int NumberOfItemsPerRow = 4;
@@ -25,10 +23,8 @@ public class ShopController : MonoBehaviour
 
     public GameObject ItemSaleButtonTemplate;
 
-
 	private float _shopWindowWidth;
 	private float _shopWindowHeight;
-
 
 	// Start is called before the first frame update
 	void Start()
@@ -49,7 +45,7 @@ public class ShopController : MonoBehaviour
 	private void OnDisable()
 	{
 		ItemSaleButtonList.ForEach(button => Destroy(button.gameObject));
-        ItemSaleList.Clear();
+        _itemSaleList.Clear();
 	}
 
     private void LoadControllers()
@@ -71,23 +67,15 @@ public class ShopController : MonoBehaviour
     public IList<ItemSale> GetRandomItems()
     {
         // Create copy of sale item list
-        ItemSale[] itemsArray = new ItemSale[ItemsList.Count];
-        ItemsList.CopyTo(itemsArray);
+        ItemSale[] itemsArray = new ItemSale[GameController.Instance.ShopItems.Count];
+		GameController.Instance.ShopItems.CopyTo(itemsArray);
         var itemsList = itemsArray.ToList();
-
-        // Remove from copy, all items that player already has
-        foreach (var item in InventoryController.Inventory)
-        {
-            var itemIndex = itemsList.FindIndex(i => i.Item.Name == item.Name);
-            if (itemIndex < 0) continue;
-
-            itemsList.RemoveAt(itemIndex);
-        }
 		
         // Randomly select using the remaining items up to MaximumItemsToLoad
 		Random.InitState(TimeController.Day);
 		var itemsToLoad = new List<ItemSale>();
-        for (int i = 0; i < Mathf.Min(MaximumItemsToLoad, itemsList.Count); i++)
+        var numberOfItemsToLoad = Mathf.Min(MaximumItemsToLoad, itemsList.Count);
+		for (int i = 0; i < numberOfItemsToLoad; i++)
         {
             var itemIndex = Random.Range(0, itemsList.Count);
             var item = itemsList[itemIndex];
@@ -108,7 +96,11 @@ public class ShopController : MonoBehaviour
             int column = i % NumberOfItemsPerRow;
             int row = (NumberOfRowsPerPage - 1) - (i / NumberOfItemsPerRow); // Taking away so we got top down instead of bottom up
 
-            var x = (column + 1) * (_shopWindowWidth / (NumberOfItemsPerRow + 1));
+			var windowRect = GetComponent<RectTransform>().rect;
+			_shopWindowWidth = windowRect.width * 2;
+			_shopWindowHeight = windowRect.height * 2;
+
+			var x = (column + 1) * (_shopWindowWidth / (NumberOfItemsPerRow + 1));
             var y = (row + 1) * (_shopWindowHeight / (NumberOfRowsPerPage + 1));
 
             // This is done because gameobject position is centered.
@@ -130,24 +122,24 @@ public class ShopController : MonoBehaviour
             var tltp = itemGameObject.GetComponent<TooltipTrigger>();
             tltp.content = itemSale.Item.Name;
             ItemSaleButtonList.Add(btn);
-            ItemSaleList.Add(itemSale);
+            _itemSaleList.Add(itemSale);
         }
     }
 
     public void TryPurchaseItem(string name)
     {
-        var index = ItemSaleList.FindIndex(x => x.Item.Name == name);
+        var index = _itemSaleList.FindIndex(x => x.Item.Name == name);
         if (index < 0) 
         {
             Debug.Log($"can't find item(name={name}) in itemsale list. ignoring click");
             return;
         }
 
-        var itemSale = ItemSaleList[index];
+        var itemSale = _itemSaleList[index];
 
         ItemSaleButtonList[index].interactable = false;
 
-        ItemsList.Remove(itemSale);
+		GameController.Instance.ShopItems.Remove(itemSale);
 
         StatusController.SubtractCost(itemSale.Cost);
 

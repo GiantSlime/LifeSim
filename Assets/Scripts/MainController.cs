@@ -4,6 +4,9 @@ using UnityEditor.Animations;
 using UnityEditor.SearchService;
 using UnityEngine;
 
+/// <summary>
+/// This holds character data from scene to scene.
+/// </summary>
 public class MainController : MonoBehaviour
 {
     public PlayerController playerController;
