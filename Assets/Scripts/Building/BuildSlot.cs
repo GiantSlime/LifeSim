@@ -16,6 +16,7 @@ public class BuildSlot : MonoBehaviour
     public Sprite DisabledSprite;               // probably show this if the active clicked build can't be placed here
     public Sprite SelectableSprite;             // When selecting an item, this is the sprite for slots that can be selected
 
+    public SpriteRenderer BorderSpriteRenderer;
     public SpriteRenderer SlotSpriteRenderer;   // Should be set by the editor
     public SpriteRenderer ItemSpriteRenderer;   // Should be set by the editor
 
@@ -27,6 +28,7 @@ public class BuildSlot : MonoBehaviour
 
 	public void Start()
 	{
+        BorderSpriteRenderer = GetComponent<SpriteRenderer>();
         SlotSpriteRenderer.sprite = DefaultSprite;
 	}
 
@@ -81,10 +83,12 @@ public class BuildSlot : MonoBehaviour
     public void OnItemPlaced()
     {
         ItemSpriteRenderer.enabled = true;
+        ClearBuild.Renderer.enabled = true;
     }
 
     public void OnItemRemoved()
     {
         ItemSpriteRenderer.enabled = false;
+        ClearBuild.Renderer.enabled = false;
 	}
 }

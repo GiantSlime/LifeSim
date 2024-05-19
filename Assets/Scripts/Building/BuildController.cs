@@ -10,6 +10,7 @@ public class BuildController : MonoBehaviour
     private List<BuildSlot> _buildSlots = new List<BuildSlot>();
     private ItemScriptableObject _activeItem;
 
+    private bool _isBuildMode = false;
 
 	private void Awake()
 	{
@@ -55,6 +56,11 @@ public class BuildController : MonoBehaviour
     /// <param name="buildSlot">The build slot that was clicked.</param>
     public void BuildSlotClicked(BuildSlot buildSlot)
     {
+        if (!_isBuildMode) 
+        {
+            return;
+        }
+
         Debug.Log("BuildSlotClicked:Enter");
 		// no point doing anything if we don't have an active item
 		if (_activeItem == null) return;
@@ -114,5 +120,20 @@ public class BuildController : MonoBehaviour
         slot.ClearBuild.gameObject.SetActive(false);
 
         slot.OnItemRemoved();
+	}
+
+    public void SetBuildMode(bool isBuildMode)
+    {
+        Debug.Log($"SetBuildMode(isBuildMode={isBuildMode})");
+
+        if (_isBuildMode == isBuildMode)
+            return;
+
+        _isBuildMode = isBuildMode;
+		_buildSlots.ForEach(slot =>
+        {
+            slot.ClearBuild.gameObject.SetActive(isBuildMode);
+            slot.BorderSpriteRenderer.enabled = _isBuildMode;
+        });
 	}
 }

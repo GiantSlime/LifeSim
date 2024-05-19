@@ -38,6 +38,8 @@ public class InventoryController : MonoBehaviour
 		{
 			ReloadInventory();
 		}
+
+		BuildController.SetBuildMode(_isInventoryOpened);
 	}
 
 	public const int NumberOfItemsPerRow = 4;
