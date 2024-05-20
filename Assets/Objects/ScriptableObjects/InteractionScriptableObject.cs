@@ -22,5 +22,7 @@ public class InteractionScriptableObject : ScriptableObject
 	public int CurrentMaximumTime = 0;
 
 	public float Money = 0;
+
+	public bool IsFood = false;
 }
 

@@ -12,6 +12,7 @@ public class ShopController : MonoBehaviour
     public TimeController TimeController;
     public InventoryController InventoryController;
     public StatusController StatusController;
+    public ObjectivesController ObjectivesController;
 
 	[HideInInspector]
     public List<Button> ItemSaleButtonList = new();
@@ -25,6 +26,11 @@ public class ShopController : MonoBehaviour
 
 	private float _shopWindowWidth;
 	private float _shopWindowHeight;
+
+	private void Awake()
+	{
+		ObjectivesController = FindObjectOfType<ObjectivesController>();
+	}
 
 	// Start is called before the first frame update
 	void Start()
@@ -144,5 +150,7 @@ public class ShopController : MonoBehaviour
         StatusController.SubtractCost(itemSale.Cost);
 
         InventoryController.AddItem(itemSale.Item);
+
+        ObjectivesController.OnItemBought();
     }
 }

@@ -42,6 +42,13 @@ public class PlayerController : MonoBehaviour
 
 	public InventoryController InventoryController;
 
+	public ObjectivesController ObjectivesController;
+
+	private void Awake()
+	{
+		ObjectivesController = FindObjectOfType<ObjectivesController>();
+	}
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -345,6 +352,14 @@ public class PlayerController : MonoBehaviour
 	{
 		Debug.Log($"Interact_OnGameTick({timePassedPerTick})");
 		StatusController.Interact(_interaction, timePassedPerTick);
+		if (_interaction.Name == "Work")
+		{
+			ObjectivesController.OnWorking(timePassedPerTick);
+		}
+		if (_interaction.IsFood)
+		{
+			ObjectivesController.OnFoodEaten();
+		}
 		if (_interaction.HasMaximumTime && _interaction.CurrentMaximumTime <= 0)
 		{
 			Debug.Log("Interaction has reached maximum time. Stopping Interaction");
@@ -361,6 +376,11 @@ public class PlayerController : MonoBehaviour
 	public void StartInteracting(InteractionScriptableObject interaction)
 	{
 		Debug.Log($"StartInteracting({interaction.name})");
+
+		// KANNA
+		// This is the start of the interacting method.
+		// Animation should be set to start here.
+
 		_interaction = interaction;
 		if (interaction.Money < 0)
 			StatusController.AcceptCost(interaction.Money);
@@ -373,6 +393,11 @@ public class PlayerController : MonoBehaviour
 	public void StopInteracting()
 	{
 		Debug.Log("StopInteracting()");
+
+		// KANNA
+		// This is the start of the stop interacting method.
+		// Animation should stop here.
+
 		TimeController.OnGameTick -= Interact_OnGameTick;
 		StatusController.ResetInteraction();
 		_interaction = null;

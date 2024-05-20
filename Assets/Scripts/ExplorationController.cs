@@ -34,6 +34,8 @@ public class ExplorationController : MonoBehaviour
 
 	public GameObject BottomFloorCover;
 
+	public ObjectivesController ObjectivesController;
+
 	public enum ExploreType
 	{
 		None,
@@ -42,6 +44,11 @@ public class ExplorationController : MonoBehaviour
 	}
 
 	private bool moveStarted = false;
+
+	public void Awake()
+	{
+		ObjectivesController = FindObjectOfType<ObjectivesController>();
+	}
 
 	public void Update()
 	{
@@ -132,6 +139,7 @@ public class ExplorationController : MonoBehaviour
 		CurrentExploreType = exploreType;
 		moveStarted = true;
 		IsExploring = true;
+		ObjectivesController.OnGoneOutside();
 	}
 
 	public void LoadExploreScreen(ExploreType exploreType)

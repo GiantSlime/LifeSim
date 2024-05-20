@@ -19,5 +19,5 @@ MonoBehaviour:
   HasMaximumTime: 1
   MaximumTime: 60
   CurrentMaximumTime: 0
-  MoneyCost: -20
-  IsImmediateCost: 1
+  Money: 0
+  IsFood: 1
