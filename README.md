@@ -31,13 +31,17 @@ FEATURES
 [hotfix]
 player can only go outside once a day
 
+[Player emotions]
+-when ever the player is interacting, a emotion bubble will pop up on top of the player head. make the pop up emotion changeable through editor (based on interaction)
+-
+
 [Shopping category]
 have each shopping iten have a category (shown in tooltip). instead of showing random object, please display a random object from each caterory per day. there will be 5 categories. [car][floral][artistic][gamer][retro]
 
 [NPC INTERACTION]
 have npc visit the players house as an event. 
 for now, on a press of a button, have a  npc come visit the player house and knock on the door. (npc provided)
-- when npc knocks on the door a "knock knock" visual indicator will show at the door. if the door is not visible then the knock knock vfx will show at the side of the screen. - kill provide vfx
+- when npc knocks on the door a "knock knock" visual indicator will show at the door. if the door is not visible then the knock knock vfx will show at the side of the screen. - will provide vfx
 
 in future the npc will come to the player house 5 ingame minutes after the player has started interacting with the bed, pc, or the bookshelf
 
@@ -64,7 +68,7 @@ the player will have a base score of 8.
 3. evertime the player decorates the room with the same category +1, else -1
 4. when the player lets the npc, if the players next iteraction aside from talking with the npc, is the interaction that the player was doing before the npc has interupted, then +1, else -1. everytime the player ignores the npc at door, +1
 
-the game will end after 2 in game days. after this the player will answer 4 questions:
+the game will end after 3 in game days. after this the player will answer 4 questions:
 
 I would rather go to a library than to a party 
 I enjoy doing things spontaneously
