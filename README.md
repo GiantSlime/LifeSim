@@ -16,6 +16,7 @@ CHANGELOG
 
 TODO LIST
 
+[BUG] sleep doesnt work
 [BUG] When you re-clcik shop again -> shouldn't be able to
 [FEATURE] Kanna needs to add build slot border thingy
 Possible [BUG]: Shop might be randomly cycling through items, RNG might not be working correctly. Should look into it after spawning multiple items.
