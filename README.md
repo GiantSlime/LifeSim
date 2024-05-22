@@ -32,29 +32,12 @@ FEATURES
 [hotfix]
 player can only go outside once a day
 
-[Player emotions]
+[Player emotions][low priority]
 -when ever the player is interacting, a emotion bubble will pop up on top of the player head. make the pop up emotion changeable through editor (based on interaction)
 -
 
 [Shopping category]
 have each shopping iten have a category (shown in tooltip). instead of showing random object, please display a random object from each caterory per day. there will be 5 categories. [car][floral][artistic][gamer][retro]
-
-[NPC INTERACTION]
-have npc visit the players house as an event. 
-for now, on a press of a button, have a  npc come visit the player house and knock on the door. (npc provided)
-- when npc knocks on the door a "knock knock" visual indicator will show at the door. if the door is not visible then the knock knock vfx will show at the side of the screen. - will provide vfx
-
-in future the npc will come to the player house 5 ingame minutes after the player has started interacting with the bed, pc, or the bookshelf
-
-when the player interacts with the door while there are someone at the door then a new button will show, names "invite". when this button is clicked the npc will enter the house and will become an interactable entity. 
-the npc will auitomatically leave the house after 5 hours after entering the house.
-if the player does not want to invite the npc in the house, the npc will automatically fuck off after 1 hour after knocking the door.
-
-the npc interactions will be:
-	small talk
-	ask to leave
-
-when you click on these inetractions a speach bubble with text will appare on top of the npc. the content will be random. these speach bubbles will change text automatically after a 5 sec each.
 
 [COOKING INTERACTION]
 when you interact with the oven and select a food you would like to cook, a new pop up will show on screen displaying the 'secret ingredient'
@@ -63,17 +46,15 @@ the player will start interacting after the secret ingredient is selected. the i
 [RECORDING PLAYER]
 please make a way to record the players action on a txt file that can be accessed via file explorere.
 please record the following:
-the player will have a base score of 8.
+the player will have a base score of 6.
 1. everytime a player goes to the disco, -1 to score, if library then +1
 2. everytime a player adds a [weird] ingredient then -1, everytime a player adds a normal ingredient then +1 
 3. evertime the player decorates the room with the same category +1, else -1
-4. when the player lets the npc, if the players next iteraction aside from talking with the npc, is the interaction that the player was doing before the npc has interupted, then +1, else -1. everytime the player ignores the npc at door, +1
 
-the game will end after 3 in game days. after this the player will answer 4 questions:
+the game will end after 3 in game days. after this the player will answer 3 questions:
 
 I would rather go to a library than to a party 
 I enjoy doing things spontaneously
-If there is an interruption, I can switch back very quickly
 I like to collect information about categories of things
 
 player can answer these questions from definitely aggree to definitely disagree. please beable to also record these data as follows
@@ -87,12 +68,7 @@ player can answer these questions from definitely aggree to definitely disagree.
 	aggree -1
 	disagree +1
 	definitely disagree +2
-3.If there is an interruption, I can switch back very quickly
-	definitely aggre +2
-	aggree +1
-	disagree -1
-	definitely disagree -2
-4.I like to collect information about categories of things\
+3.I like to collect information about categories of things
 	definitely aggre +2
 	aggree +1
 	disagree -1
