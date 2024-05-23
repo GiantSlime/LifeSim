@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6797815f00411da46a3b6cb82e04c268, type: 3}
-  m_Name: CarPoster
+  m_Name: RetroSculpture
   m_EditorClassIdentifier: 
-  Name: Car Poster
-  Sprite: {fileID: 956769589, guid: 68a1fb390de37d84c881e05f0add3c26, type: 3}
-  PlacementTypes: 04000000
-  ItemCategory: 0
+  Name: 80's Chair
+  Sprite: {fileID: 980827813, guid: 68a1fb390de37d84c881e05f0add3c26, type: 3}
+  PlacementTypes: 01000000
+  ItemCategory: 4
   IsItemPurchased: 0
