@@ -6733,9 +6733,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShopItems:
   - Item: {fileID: 11400000, guid: 288287ede7257884bbd151bfa2038572, type: 2}
-    Cost: 10
+    Cost: 20
   - Item: {fileID: 11400000, guid: 5d93e47b18ae4d24c936a39971b0ed73, type: 2}
     Cost: 20
+  - Item: {fileID: 11400000, guid: 111c0faecbdf126419c53b89648d69c2, type: 2}
+    Cost: 20
+  - Item: {fileID: 11400000, guid: 13ed8a943d6d6fe468c58c4cdb310a07, type: 2}
+    Cost: 20
+  - Item: {fileID: 11400000, guid: 1fa9c0f40f1e8cc4fafc3a0fadf7fe16, type: 2}
+    Cost: 20
+  - Item: {fileID: 11400000, guid: 522d25ffc1e73db44aaef0e99a743a4f, type: 2}
+    Cost: 80
+  - Item: {fileID: 11400000, guid: 0613f32959e87624eac5c91af2e80ee0, type: 2}
+    Cost: 80
+  - Item: {fileID: 11400000, guid: fab6a2194406dca42ac193eb01447573, type: 2}
+    Cost: 80
+  - Item: {fileID: 11400000, guid: 21b37d644c2b9da48a58136e9b0f2915, type: 2}
+    Cost: 80
+  - Item: {fileID: 11400000, guid: 3e7d2fa8ec2f8694bb67b0f88adf59f5, type: 2}
+    Cost: 80
+  - Item: {fileID: 11400000, guid: 0f132c0ad8a827345a86eac2e7681819, type: 2}
+    Cost: 50
+  - Item: {fileID: 11400000, guid: 849cf693c0be9944ab14143623ddee16, type: 2}
+    Cost: 50
+  - Item: {fileID: 11400000, guid: 90e0a688b745cea4ea79e431ebfa355c, type: 2}
+    Cost: 50
+  - Item: {fileID: 11400000, guid: ea2667ad06db5fc45969906aeec661f2, type: 2}
+    Cost: 50
+  - Item: {fileID: 11400000, guid: 0d8d874ce651a134d91cde51b53d2913, type: 2}
+    Cost: 50
+  - Item: {fileID: 11400000, guid: fa408dd83afa82c41a89d8de4ac8fdea, type: 2}
+    Cost: 50
+  - Item: {fileID: 11400000, guid: 564917099f40a64478dd5ca70c6c02a4, type: 2}
+    Cost: 50
+  - Item: {fileID: 11400000, guid: ac48da481ad10104fa8fb6cee9fc9da2, type: 2}
+    Cost: 50
+  - Item: {fileID: 11400000, guid: f3d049b5906f0bc4bb3bda287081e00d, type: 2}
+    Cost: 50
+  - Item: {fileID: 11400000, guid: fd907ba42c1a14c4faad73f19819234b, type: 2}
+    Cost: 50
   NumberOfItemsPerCategoryToLoad: 1
   TodaysItems: []
   TimeController: {fileID: 0}
@@ -7372,13 +7408,13 @@ MonoBehaviour:
   IngredientsPanel: {fileID: 2074466852}
   Ingredients:
   - {fileID: 11400000, guid: 18c1c807d9dcc9c46aa844ace32710a8, type: 2}
-  - {fileID: 11400000, guid: 18c1c807d9dcc9c46aa844ace32710a8, type: 2}
-  - {fileID: 11400000, guid: 18c1c807d9dcc9c46aa844ace32710a8, type: 2}
-  - {fileID: 11400000, guid: 18c1c807d9dcc9c46aa844ace32710a8, type: 2}
-  - {fileID: 11400000, guid: 18c1c807d9dcc9c46aa844ace32710a8, type: 2}
-  - {fileID: 11400000, guid: 18c1c807d9dcc9c46aa844ace32710a8, type: 2}
-  - {fileID: 11400000, guid: 18c1c807d9dcc9c46aa844ace32710a8, type: 2}
-  - {fileID: 11400000, guid: 18c1c807d9dcc9c46aa844ace32710a8, type: 2}
+  - {fileID: 11400000, guid: cf5dee0b8d8e29640b8b8af6ac1bfa11, type: 2}
+  - {fileID: 11400000, guid: 80f046d0e41b87341affc50e6e9853c0, type: 2}
+  - {fileID: 11400000, guid: 38457664c13b0584397673ef88f18561, type: 2}
+  - {fileID: 11400000, guid: 503366f775b22fc45b91b221e43abc50, type: 2}
+  - {fileID: 11400000, guid: 9c214470abac58947a4758334c8a0f8e, type: 2}
+  - {fileID: 11400000, guid: 8be67abed0be0924db2d28f9a87d5aa1, type: 2}
+  - {fileID: 11400000, guid: 9369b52e66af7d94caf44cd769a0d48d, type: 2}
   IngredientButtonTemplate: {fileID: 7081052593566846440, guid: 128037b1f35445d4fbf472e5ce2700ec, type: 3}
 --- !u!4 &1724753118
 Transform:

@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6797815f00411da46a3b6cb82e04c268, type: 3}
-  m_Name: GanePoster
+  m_Script: {fileID: 11500000, guid: 0a63020cd9a734e4aa7c8aab91e3981e, type: 3}
+  m_Name: Pepper
   m_EditorClassIdentifier: 
-  Name: Game Poster
-  Sprite: {fileID: 1648593204, guid: 68a1fb390de37d84c881e05f0add3c26, type: 3}
-  PlacementTypes: 04000000
-  ItemCategory: 3
-  IsItemPurchased: 0
+  Name: Pepper
+  Image: {fileID: -1979387087, guid: 5ad9aa291374b0d41b4abd5d066a7afd, type: 3}
+  IngredientType: 0
