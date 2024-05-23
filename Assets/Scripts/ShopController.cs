@@ -91,7 +91,7 @@ public class ShopController : MonoBehaviour
 
             Debug.Log($"Creating item number: {i}, at x:{x},y:{y}, column:{column},row:{row}, a:{_shopWindowWidth},b:{_shopWindowHeight / NumberOfItemsPerRow}");
 
-            var itemGameObject = Instantiate(ItemSaleButtonTemplate, this.transform.position + new Vector3(x, y, 0), Quaternion.identity, this.transform);
+            var itemGameObject = Instantiate(ItemSaleButtonTemplate, this.transform.position + new Vector3(x, y, 0) * 1.5f, Quaternion.identity, this.transform);
             // set cost text
             var tmp = itemGameObject.GetComponentInChildren<TextMeshProUGUI>();
             tmp.text = $"${itemSale.Cost}";

@@ -25,6 +25,7 @@ public class ObjectivesController : MonoBehaviour
     public List<Objectives> ObjectivesCompletionList = new();
 
     private RectTransform RectTransform;
+    private Vector3 OriginalPosition;
 
 	private void Start()
 	{
@@ -34,9 +35,11 @@ public class ObjectivesController : MonoBehaviour
 
         timeController.OnDayCycle += OnNewDay;
 
-        ResetObjectives();
-
         RectTransform = GetComponent<RectTransform>();
+        OriginalPosition = RectTransform.position;
+
+		ResetObjectives();
+
         HideObjectivesPanel();
 	}
 
@@ -121,8 +124,9 @@ public class ObjectivesController : MonoBehaviour
         if (_isObjectivesToggled)
         {
             ShowObjectivesPanel();
-        }
-        else
+            StartCoroutine("HideObjectivesCoroutine");
+		}
+		else
         {
             HideObjectivesPanel();
         }
@@ -134,12 +138,12 @@ public class ObjectivesController : MonoBehaviour
         // The following code moves the position of the objectives rect
         var rect = RectTransform.position;
         rect.x = 0;
-        RectTransform.position = rect;
+        RectTransform.position = OriginalPosition;
     }
     private void HideObjectivesPanel()
     {
 		var rect = RectTransform.position;
-		rect.x = -RectTransform.rect.width*2 - 50;
+		rect.x = -RectTransform.rect.width*2 - 500;
 		RectTransform.position = rect;
 	}
 
