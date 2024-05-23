@@ -35,6 +35,9 @@ public class ExplorationController : MonoBehaviour
 	public GameObject BottomFloorCover;
 
 	public ObjectivesController ObjectivesController;
+	public TimeController TimeController;
+
+	private bool _HasExploredToday = false;
 
 	public enum ExploreType
 	{
@@ -48,6 +51,12 @@ public class ExplorationController : MonoBehaviour
 	public void Awake()
 	{
 		ObjectivesController = FindObjectOfType<ObjectivesController>();
+		TimeController = FindObjectOfType<TimeController>();
+	}
+
+	public void Start()
+	{
+		TimeController.OnDayCycle += OnNewDay;
 	}
 
 	public void Update()
@@ -132,6 +141,12 @@ public class ExplorationController : MonoBehaviour
 
 	public void StartExploring(ExploreType exploreType)
 	{
+		if (_HasExploredToday)
+		{
+			Debug.Log("StartExploring:Player has already explored today.");
+			return;
+		}
+
 		PlayerController.IsExploring = true;
 		PlayerController.GetComponent<BoxCollider2D>().enabled = false;
 		PlayerController.MovePlayerTo(OutsideHomePosition.position);
@@ -140,6 +155,8 @@ public class ExplorationController : MonoBehaviour
 		moveStarted = true;
 		IsExploring = true;
 		ObjectivesController.OnGoneOutside();
+
+		_HasExploredToday = true;
 	}
 
 	public void LoadExploreScreen(ExploreType exploreType)
@@ -162,5 +179,10 @@ public class ExplorationController : MonoBehaviour
 		IsReturning = true;
 		PlayerController.MovePlayerTo(OutsideExplorePosition.position);
 		EndExplorationButtion.gameObject.SetActive(false);
+	}
+
+	private void OnNewDay()
+	{
+		_HasExploredToday = false;
 	}
 }
