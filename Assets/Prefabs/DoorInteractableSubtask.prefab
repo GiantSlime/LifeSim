@@ -248,15 +248,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Library
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a70e79886c515b043b483ea3bf4995c6, type: 2}
+  m_sharedMaterial: {fileID: -8287131316716816244, guid: a70e79886c515b043b483ea3bf4995c6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -273,10 +273,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 24
+  m_fontSize: 54.98
+  m_fontSizeBase: 54.98
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 354.79965, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -418,15 +418,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Disco
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a70e79886c515b043b483ea3bf4995c6, type: 2}
+  m_sharedMaterial: {fileID: -8287131316716816244, guid: a70e79886c515b043b483ea3bf4995c6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -443,10 +443,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 24
+  m_fontSize: 78.7
+  m_fontSizeBase: 78.7
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 331.2195, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -515,7 +515,7 @@ RectTransform:
   m_GameObject: {fileID: 4877126710390942871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.33240736, y: 0.33240736, z: 0.33240736}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8920485727949369392}
@@ -523,8 +523,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -66.7, y: 25}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -29.6, y: 4.5}
+  m_SizeDelta: {x: 213.33333, y: 426.66666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1262241740580793311
 CanvasRenderer:
@@ -554,8 +554,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 82be3f5d58d0052408cee1f8a7c9feb2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -583,7 +583,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -593,9 +593,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 7c5613a2dc95a6d469bd20206faf9b15, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 7c5613a2dc95a6d469bd20206faf9b15, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 7c5613a2dc95a6d469bd20206faf9b15, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -646,7 +646,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: 
+  content: 'A quiet and relaxing space to
+
+    read your favourite stories!'
   header: Library
 --- !u!1 &5415463983883920743
 GameObject:
@@ -715,7 +717,7 @@ RectTransform:
   m_GameObject: {fileID: 5748767081665811505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3310143, y: 0.3310143, z: 0.3310143}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1297274922255090105}
@@ -723,8 +725,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -136, y: 25}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -113.9, y: 4.9}
+  m_SizeDelta: {x: 213.33333, y: 426.66666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3559874631710370524
 CanvasRenderer:
@@ -754,8 +756,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: f791840072ca5c54199ec8d9d81d225d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -783,7 +785,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -793,9 +795,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: ecfc489de958eb747a62f2865f37c496, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: ecfc489de958eb747a62f2865f37c496, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: ecfc489de958eb747a62f2865f37c496, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -846,7 +848,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: 
+  content: 'A fun disco with a floor to
+
+    show your moves!'
   header: Disco
 --- !u!1 &7939020549569840671
 GameObject:
@@ -1013,11 +1017,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2092837982625021494, guid: c2b07d30d8c266f4586ac3b3bd91f8e2, type: 3}
       propertyPath: header
-      value: 
+      value: Explore outside
       objectReference: {fileID: 0}
     - target: {fileID: 2092837982625021494, guid: c2b07d30d8c266f4586ac3b3bd91f8e2, type: 3}
       propertyPath: content
-      value: Select a destination
+      value: 'Select a destination
+
+        -$40 (3 hours max)
+
+        +Fun
+
+        -Energy
+
+        -Hunger'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682997055036878855, guid: c2b07d30d8c266f4586ac3b3bd91f8e2, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.67058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682997055036878855, guid: c2b07d30d8c266f4586ac3b3bd91f8e2, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.67058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682997055036878855, guid: c2b07d30d8c266f4586ac3b3bd91f8e2, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.67058825
       objectReference: {fileID: 0}
     - target: {fileID: 2682997055036878855, guid: c2b07d30d8c266f4586ac3b3bd91f8e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

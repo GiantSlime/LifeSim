@@ -143,7 +143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Eat...
+  m_text: Cook...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a70e79886c515b043b483ea3bf4995c6, type: 2}
   m_sharedMaterial: {fileID: -8287131316716816244, guid: a70e79886c515b043b483ea3bf4995c6, type: 2}
@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 7755125346588871785}
   - component: {fileID: 7835018187737603042}
   - component: {fileID: 2788172920734247236}
+  - component: {fileID: 6181803519542939805}
   m_Layer: 5
   m_Name: Book01
   m_TagString: Untagged
@@ -359,6 +360,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interaction: {fileID: 11400000, guid: fa540245340d6624d8aa667a650298e4, type: 2}
   InteractableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &6181803519542939805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482140855587890046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Comes in Mild, Medium, or Spicy!
+  header: Curry
 --- !u!1 &3966478647113386378
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +387,7 @@ GameObject:
   - component: {fileID: 7773838239125350124}
   - component: {fileID: 4656198024405519196}
   - component: {fileID: 8812581600494653605}
+  - component: {fileID: 3572942084589088284}
   m_Layer: 5
   m_Name: Book03
   m_TagString: Untagged
@@ -506,6 +522,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interaction: {fileID: 11400000, guid: fa540245340d6624d8aa667a650298e4, type: 2}
   InteractableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &3572942084589088284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966478647113386378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Flavours of the ocean
+  header: Sushi
 --- !u!1 &4518132749964883914
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,7 +680,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.67058825, g: 0.67058825, b: 0.67058825, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -668,7 +698,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 7257928575020423614}
+  m_TargetGraphic: {fileID: 3597113973457793777}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -697,7 +727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SubGroup: {fileID: 6010112322132144690}
-  InteractableSubTaskController: {fileID: 0}
+  InteractableSubTaskController: {fileID: 8652780113714455680}
 --- !u!114 &5882726958929864663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,7 +741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   content: Open CookBook
-  header: 
+  header: Cook your own food
 --- !u!1 &6010112322132144690
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4309644475600458661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -761,6 +791,7 @@ GameObject:
   - component: {fileID: 5103792531732401347}
   - component: {fileID: 1262502497586924583}
   - component: {fileID: 4901163263950108626}
+  - component: {fileID: 7274618416327861755}
   m_Layer: 5
   m_Name: Book04 (3)
   m_TagString: Untagged
@@ -895,6 +926,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interaction: {fileID: 11400000, guid: fa540245340d6624d8aa667a650298e4, type: 2}
   InteractableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &7274618416327861755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6656383581218274334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: they're called hotcakes in Japan
+  header: Pancakes
 --- !u!1 &6817120294007213216
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +953,7 @@ GameObject:
   - component: {fileID: 3337314933677115932}
   - component: {fileID: 7425849692400477480}
   - component: {fileID: 2644052999657754641}
+  - component: {fileID: 250050865490910955}
   m_Layer: 5
   m_Name: Book04 (1)
   m_TagString: Untagged
@@ -1042,6 +1088,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interaction: {fileID: 11400000, guid: fa540245340d6624d8aa667a650298e4, type: 2}
   InteractableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &250050865490910955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817120294007213216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Combination fried rice
+  header: Fried rice
 --- !u!1 &6963603410827999598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1115,7 @@ GameObject:
   - component: {fileID: 4767817199835558930}
   - component: {fileID: 5886924924230177005}
   - component: {fileID: 6277131649224930735}
+  - component: {fileID: 1452617694026093577}
   m_Layer: 5
   m_Name: Book04 (4)
   m_TagString: Untagged
@@ -1189,6 +1250,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interaction: {fileID: 11400000, guid: fa540245340d6624d8aa667a650298e4, type: 2}
   InteractableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &1452617694026093577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6963603410827999598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: A healthy meal for everyone
+  header: Salad
 --- !u!1 &7475097520526489011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,6 +1277,7 @@ GameObject:
   - component: {fileID: 3311433458895877717}
   - component: {fileID: 3043138109999861506}
   - component: {fileID: 7609488914801062113}
+  - component: {fileID: 4448626014408255710}
   m_Layer: 5
   m_Name: Book04 (2)
   m_TagString: Untagged
@@ -1336,6 +1412,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interaction: {fileID: 11400000, guid: fa540245340d6624d8aa667a650298e4, type: 2}
   InteractableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &4448626014408255710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7475097520526489011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Better than fast food!
+  header: Burger
 --- !u!1 &8083395629579629715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,6 +1439,7 @@ GameObject:
   - component: {fileID: 1689569535317155528}
   - component: {fileID: 5044308761169915892}
   - component: {fileID: 2731894410381523414}
+  - component: {fileID: 9149285258366303103}
   m_Layer: 5
   m_Name: Book02
   m_TagString: Untagged
@@ -1483,6 +1574,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interaction: {fileID: 11400000, guid: fa540245340d6624d8aa667a650298e4, type: 2}
   InteractableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &9149285258366303103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8083395629579629715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Comes in Raw, Medium Raw, or Well done
+  header: Steak
 --- !u!1 &8392989917225727714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,6 +1726,7 @@ GameObject:
   - component: {fileID: 7455467658462736446}
   - component: {fileID: 2720597633339061171}
   - component: {fileID: 5330758463853852117}
+  - component: {fileID: 4239625500086651403}
   m_Layer: 5
   m_Name: Book04
   m_TagString: Untagged
@@ -1755,3 +1861,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interaction: {fileID: 11400000, guid: fa540245340d6624d8aa667a650298e4, type: 2}
   InteractableSubTaskController: {fileID: 8652780113714455680}
+--- !u!114 &4239625500086651403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8796735025100318736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: With Meat balls
+  header: Spaghetti
