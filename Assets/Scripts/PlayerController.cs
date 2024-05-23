@@ -43,7 +43,8 @@ public class PlayerController : MonoBehaviour
 	[HideInInspector]
 	public FoodController FoodController;
 
-	public GameObject StopInteractionButton;
+	public GameObject StopInteractingButton;
+	public GameObject BackInteractionButton;
 
 	private void Awake()
 	{
@@ -126,6 +127,7 @@ public class PlayerController : MonoBehaviour
 					_subTaskController.Player = this;
 
 					IsInteracting = true;
+					BackInteractionButton.SetActive(true);
 				}
 
 				SetPlayerWalkingAnimation(false);
@@ -226,6 +228,7 @@ public class PlayerController : MonoBehaviour
 				_subTaskController.Player = this;
 
 				IsInteracting = true;
+				BackInteractionButton.SetActive(true);
 			}
 		}
         else
@@ -385,7 +388,8 @@ public class PlayerController : MonoBehaviour
 			return;
 		}
 
-		StopInteractionButton.SetActive(true);
+		BackInteractionButton.SetActive(false);
+		StopInteractingButton.SetActive(true);
 
 		// KANNA
 		// This is the start of the interacting method.
@@ -416,7 +420,8 @@ public class PlayerController : MonoBehaviour
 		Destroy(_interactMenu);
 		_interactMenu = null;
 
-		StopInteractionButton.SetActive(false);
+		StopInteractingButton.SetActive(false);
+		BackInteractionButton.SetActive(false);
 	}
 
 	/// <summary>
