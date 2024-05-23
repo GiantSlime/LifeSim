@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6797815f00411da46a3b6cb82e04c268, type: 3}
-  m_Name: PiggyBank
+  m_Name: RetroPoster
   m_EditorClassIdentifier: 
-  Name: Piggy Bank
-  Sprite: {fileID: 21300000, guid: 33a70654eeeb25d45ac0ee9931ca0a80, type: 3}
-  PlacementTypes: 00000000
-  ItemCategory: 3
+  Name: Retro Quote Poster
+  Sprite: {fileID: 232544165, guid: 68a1fb390de37d84c881e05f0add3c26, type: 3}
+  PlacementTypes: 04000000
+  ItemCategory: 4
   IsItemPurchased: 0
