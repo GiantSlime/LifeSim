@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Seasonal Flower Basket
   Sprite: {fileID: -403116234, guid: 68a1fb390de37d84c881e05f0add3c26, type: 3}
   PlacementTypes: 03000000
-  ItemCategory: 2
-  IsItemPurchased: 0
+  ItemCategory: 1
+  IsItemPurchased: 1
