@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectivesController : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class ObjectivesController : MonoBehaviour
     public TextMeshProUGUI HungryObjective;
     public TextMeshProUGUI WorkObjective;
     public TextMeshProUGUI BuyAnItemObjective;
+
+    public Image TouchGrassCheckBox;
+    public Image HungryCheckBox;
+    public Image WorkCheckBox;
+    public Image BuyAnItemCheckBox;
 
     public PlayerController playerController;
     public TimeController timeController;
@@ -26,6 +32,9 @@ public class ObjectivesController : MonoBehaviour
 
     private RectTransform RectTransform;
     private Vector3 OriginalPosition;
+
+    public Sprite OpenCheckbox;
+    public Sprite CheckedCheckbox;
 
 	private void Start()
 	{
@@ -55,26 +64,26 @@ public class ObjectivesController : MonoBehaviour
         {
             Debug.Log("OnWorking: Objective Complete.");
 			HasWorkedEnough = true;
-            SetObjectiveAsCompleted(WorkObjective);
+            SetObjectiveAsCompleted(WorkObjective, WorkCheckBox);
         }
     }
     public void OnGoneOutside()
     {
         Debug.Log("OnGoneOutside: Objective Complete.");
         HasGoneOutside = true;
-        SetObjectiveAsCompleted(TouchGrassObjective);
+        SetObjectiveAsCompleted(TouchGrassObjective, TouchGrassCheckBox);
     }
     public void OnFoodEaten()
     {
         Debug.Log("OnFoodEaten: Objective Complete.");
         HasEatenFood = true;
-        SetObjectiveAsCompleted(HungryObjective);
+        SetObjectiveAsCompleted(HungryObjective, HungryCheckBox);
     }
     public void OnItemBought()
     {
         Debug.Log("OnItemBought: Objective Complete.");
         HasBoughtItem = true;
-        SetObjectiveAsCompleted(BuyAnItemObjective);
+        SetObjectiveAsCompleted(BuyAnItemObjective, BuyAnItemCheckBox);
     }
 
     private void OnNewDay()
@@ -89,11 +98,12 @@ public class ObjectivesController : MonoBehaviour
         ResetObjectives();
     }
 
-    private void SetObjectiveAsCompleted(TextMeshProUGUI objectiveText)
+    private void SetObjectiveAsCompleted(TextMeshProUGUI objectiveText, Image objectiveCheckbox)
     {
 		ShowObjectivesPanel();
-		//objectiveText.color = ColorUtility.TryParseHtmlString("#808080", out var color) ? Color.black : color;
-		objectiveText.fontStyle = FontStyles.Strikethrough;
+        //objectiveText.color = ColorUtility.TryParseHtmlString("#808080", out var color) ? Color.black : color;
+        //objectiveText.fontStyle = FontStyles.Strikethrough;
+        objectiveCheckbox.sprite = CheckedCheckbox;
         StartCoroutine("HideObjectivesCoroutine");
     }
 
@@ -101,12 +111,16 @@ public class ObjectivesController : MonoBehaviour
 	{
 		TouchGrassObjective.color = Color.white;
 		TouchGrassObjective.fontStyle = FontStyles.Normal;
+        TouchGrassCheckBox.sprite = OpenCheckbox;
 		HungryObjective.color = Color.white;
 		HungryObjective.fontStyle = FontStyles.Normal;
+        HungryCheckBox.sprite = OpenCheckbox;
 		WorkObjective.color = Color.white;
 		WorkObjective.fontStyle = FontStyles.Normal;
+        WorkCheckBox.sprite = OpenCheckbox;
 		BuyAnItemObjective.color = Color.white;
 		BuyAnItemObjective.fontStyle = FontStyles.Normal;
+        BuyAnItemCheckBox.sprite = OpenCheckbox;
 
         TimeSpentWorkingToday = 0;
         HasWorkedEnough = false;

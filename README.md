@@ -18,6 +18,11 @@ CHANGELOG
 [DONE][FEATURE] [Shopping category]
 have each shopping iten have a category (shown in tooltip). instead of showing random object, please display a random object from each caterory per day. there will be 5 categories. [car][floral][artistic][gamer][retro]
 
+[DONE][FEATURE] [COOKING INTERACTION]
+when you interact with the oven and select a food you would like to cook, a new pop up will show on screen displaying the 'secret ingredient'
+the player will start interacting after the secret ingredient is selected. the ingreadients will have metadata that the player cannot see. these metadata will categorise the ingredients as either [normal] or [weird] 
+
+
 
 
 <============== TODO LIST ===========>
@@ -35,10 +40,6 @@ Possible [BUG]: Shop might be randomly cycling through items, RNG might not be w
 
 
 <============== FEATURES ============>
-
-[FEATURE] [COOKING INTERACTION]
-when you interact with the oven and select a food you would like to cook, a new pop up will show on screen displaying the 'secret ingredient'
-the player will start interacting after the secret ingredient is selected. the ingreadients will have metadata that the player cannot see. these metadata will categorise the ingredients as either [normal] or [weird] 
 
 [RECORDING PLAYER]
 please make a way to record the players action on a txt file that can be accessed via file explorere.
