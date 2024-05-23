@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.Animations;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -41,8 +38,12 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D _rigidBody;
 
 	public InventoryController InventoryController;
+	[HideInInspector]
 	public ObjectivesController ObjectivesController;
+	[HideInInspector]
 	public FoodController FoodController;
+
+	public GameObject StopInteractionButton;
 
 	private void Awake()
 	{
@@ -384,6 +385,8 @@ public class PlayerController : MonoBehaviour
 			return;
 		}
 
+		StopInteractionButton.SetActive(true);
+
 		// KANNA
 		// This is the start of the interacting method.
 		// Animation should be set to start here.
@@ -412,6 +415,8 @@ public class PlayerController : MonoBehaviour
 		_subTaskController = null;
 		Destroy(_interactMenu);
 		_interactMenu = null;
+
+		StopInteractionButton.SetActive(false);
 	}
 
 	/// <summary>

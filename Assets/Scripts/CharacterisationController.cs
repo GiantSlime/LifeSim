@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class CharacterisationController : MonoBehaviour
 {
@@ -72,8 +70,8 @@ public class CharacterisationController : MonoBehaviour
     private int _pantsColorIndex = 0;
     private int _pantsStyleIndex = 0;
 
-    public List<AnimatorController> HairAnimatorController = new List<AnimatorController>();
-    public List<AnimatorController> PantsAnimatorController = new List<AnimatorController>();
+    public List<RuntimeAnimatorController> HairAnimatorController = new List<RuntimeAnimatorController>();
+    public List<RuntimeAnimatorController> PantsAnimatorController = new List<RuntimeAnimatorController>();
 
 	public void Start()
 	{
