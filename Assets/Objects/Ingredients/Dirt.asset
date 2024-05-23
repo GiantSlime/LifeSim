@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a63020cd9a734e4aa7c8aab91e3981e, type: 3}
   m_Name: Dirt
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Dirt
   Image: {fileID: 1392253301, guid: 5ad9aa291374b0d41b4abd5d066a7afd, type: 3}
   IngredientType: 1
