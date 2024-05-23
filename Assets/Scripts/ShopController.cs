@@ -132,5 +132,13 @@ public class ShopController : MonoBehaviour
         InventoryController.AddItem(itemSale.Item);
 
         ObjectivesController.OnItemBought();
+
+        RecheckItemAvailability(); // what a dirty hack around
+    }
+
+    private void RecheckItemAvailability()
+    {
+        OnDisable();
+        OnEnable();
     }
 }
