@@ -13,4 +13,7 @@ public class ItemScriptableObject : ScriptableObject
 	public PlacementType[] PlacementTypes;
 
 	public ItemCategory ItemCategory;
+
+	[HideInInspector]
+	public bool IsItemPurchased = false;
 }

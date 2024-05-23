@@ -15,3 +15,5 @@ MonoBehaviour:
   Name: Piggy Bank
   Sprite: {fileID: 21300000, guid: 33a70654eeeb25d45ac0ee9931ca0a80, type: 3}
   PlacementTypes: 00000000
+  ItemCategory: 3
+  IsItemPurchased: 0

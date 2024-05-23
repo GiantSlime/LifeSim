@@ -18,10 +18,8 @@ public class ShopController : MonoBehaviour
     public List<Button> ItemSaleButtonList = new();
     private List<ItemSale> _itemSaleList = new();
 
-	private int MaximumItemsToLoad = 5;
     private int NumberOfItemsPerRow = 5;
     private int NumberOfRowsPerPage = 1;
-    public int NumberOfItemsPerCategoryToLoad = 1;
 
     public GameObject ItemSaleButtonTemplate;
 
@@ -67,72 +65,9 @@ public class ShopController : MonoBehaviour
 
     public void OnLoad()
     {
-        var itemsToSell = GetRandomItems();
+        var itemsToSell = GameController.Instance.TodaysItems;
         CreateButtons(itemsToSell);
     }
-
-    public IList<ItemSale> GetRandomItems()
-    {
-        // Create copy of sale item list
-        ItemSale[] itemsArray = new ItemSale[GameController.Instance.ShopItems.Count];
-		GameController.Instance.ShopItems.CopyTo(itemsArray);
-        var itemsList = itemsArray.ToList();
-
-        // Instead of randomly selecting, we now want one random item from each category to show up
-        List<ItemSale> carCategory = new();
-        List<ItemSale> floralCategory = new();
-        List<ItemSale> artisticCategory = new();
-        List<ItemSale> gamerCategory = new();
-        List<ItemSale> retroCategory = new();
-
-        foreach (var item in itemsList)
-        {
-            switch (item.Item.ItemCategory)
-            {
-                case ItemCategory.Car:
-                    carCategory.Add(item);
-                    break;
-                case ItemCategory.Floral:
-                    floralCategory.Add(item);
-                    break;
-                case ItemCategory.Artistic:
-                    artisticCategory.Add(item);
-                    break;
-                case ItemCategory.Gamer: 
-                    gamerCategory.Add(item);
-                    break;
-                case ItemCategory.Retro:
-                    retroCategory.Add(item);
-                    break;
-            }
-        }
-
-		// Randomly select using the remaining items up to MaximumItemsToLoad
-		var itemsToLoad = new List<ItemSale>();
-        itemsToLoad.AddRange(GetRandomItemFromCategoryList(carCategory));
-        itemsToLoad.AddRange(GetRandomItemFromCategoryList(floralCategory));
-        itemsToLoad.AddRange(GetRandomItemFromCategoryList(artisticCategory));
-        itemsToLoad.AddRange(GetRandomItemFromCategoryList(gamerCategory));
-        itemsToLoad.AddRange(GetRandomItemFromCategoryList(retroCategory));
-
-        return itemsToLoad;
-    }
-
-    private List<ItemSale> GetRandomItemFromCategoryList(List<ItemSale> itemsList)
-    {
-        var returnList = new List<ItemSale>();
-		Random.InitState(TimeController.Day);
-        for (var i = 0; i < Mathf.Min(NumberOfItemsPerCategoryToLoad, itemsList.Count); i++)
-        {
-			var itemIndex = Random.Range(0, itemsList.Count);
-			var item = itemsList[itemIndex];
-			itemsList.RemoveAt(itemIndex);
-
-			returnList.Add(item);
-		}
-
-        return returnList;
-	}
 
 	public void CreateButtons(IList<ItemSale> itemsToSell)
     {
@@ -147,7 +82,7 @@ public class ShopController : MonoBehaviour
 			_shopWindowWidth = windowRect.width * 2;
 			_shopWindowHeight = windowRect.height * 2;
 
-			var x = (column + 1) * (_shopWindowWidth / (NumberOfItemsPerRow + 1));
+			var x = (column + 1) * (_shopWindowWidth / (Mathf.Min(NumberOfItemsPerRow, itemsToSell.Count) + 1));
             var y = (row + 1) * (_shopWindowHeight / (NumberOfRowsPerPage + 1));
 
             // This is done because gameobject position is centered.
@@ -162,12 +97,15 @@ public class ShopController : MonoBehaviour
             tmp.text = $"${itemSale.Cost}";
             // set button event to purchase
             var btn = itemGameObject.GetComponent<Button>();
-            btn.image.sprite = itemSale.Item.Sprite;
+			btn.image.sprite = itemSale.Item.Sprite;
             btn.onClick.AddListener(delegate { TryPurchaseItem(itemSale.Item.Name); });
-            btn.interactable = StatusController.CanAffordCost(itemSale.Cost);
+            btn.interactable = !itemSale.Item.IsItemPurchased && StatusController.CanAffordCost(itemSale.Cost);
+
             // set tooltip to item name
             var tltp = itemGameObject.GetComponent<TooltipTrigger>();
-            tltp.content = itemSale.Item.Name;
+            tltp.header = itemSale.Item.Name;
+            tltp.content = itemSale.Item.ItemCategory.ToString();
+
             ItemSaleButtonList.Add(btn);
             _itemSaleList.Add(itemSale);
         }
@@ -186,7 +124,8 @@ public class ShopController : MonoBehaviour
 
         ItemSaleButtonList[index].interactable = false;
 
-		GameController.Instance.ShopItems.Remove(itemSale);
+        itemSale.Item.IsItemPurchased = true;
+		//GameController.Instance.TodaysItems.Remove(itemSale);
 
         StatusController.SubtractCost(itemSale.Cost);
 

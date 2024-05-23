@@ -15,6 +15,8 @@ CHANGELOG
 [FIXED][BUG] sleep doesnt work
 [FIXED][hotfix]player can only go outside once a day
 
+[DONE][FEATURE] [Shopping category]
+have each shopping iten have a category (shown in tooltip). instead of showing random object, please display a random object from each caterory per day. there will be 5 categories. [car][floral][artistic][gamer][retro]
 
 
 
@@ -34,10 +36,7 @@ Possible [BUG]: Shop might be randomly cycling through items, RNG might not be w
 
 <============== FEATURES ============>
 
-[Shopping category]
-have each shopping iten have a category (shown in tooltip). instead of showing random object, please display a random object from each caterory per day. there will be 5 categories. [car][floral][artistic][gamer][retro]
-
-[COOKING INTERACTION]
+[FEATURE] [COOKING INTERACTION]
 when you interact with the oven and select a food you would like to cook, a new pop up will show on screen displaying the 'secret ingredient'
 the player will start interacting after the secret ingredient is selected. the ingreadients will have metadata that the player cannot see. these metadata will categorise the ingredients as either [normal] or [weird] 
 

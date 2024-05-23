@@ -15,3 +15,5 @@ MonoBehaviour:
   Name: Car Poster
   Sprite: {fileID: 956769589, guid: 68a1fb390de37d84c881e05f0add3c26, type: 3}
   PlacementTypes: 0100000002000000000000000300000004000000
+  ItemCategory: 0
+  IsItemPurchased: 0
