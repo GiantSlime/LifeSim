@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a63020cd9a734e4aa7c8aab91e3981e, type: 3}
-  m_Name: Egg
+  m_Script: {fileID: 11500000, guid: 6797815f00411da46a3b6cb82e04c268, type: 3}
+  m_Name: GamePoster
   m_EditorClassIdentifier: 
-  Name: Egg
-  Image: {fileID: -1481131401, guid: 19c36ab155f72e544925da71791d6052, type: 3}
-  IngredientType: 0
+  Name: Game Poster
+  Sprite: {fileID: 1648593204, guid: 68a1fb390de37d84c881e05f0add3c26, type: 3}
+  PlacementTypes: 04000000
+  ItemCategory: 3
+  IsItemPurchased: 0
