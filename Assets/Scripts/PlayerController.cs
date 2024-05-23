@@ -41,12 +41,13 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D _rigidBody;
 
 	public InventoryController InventoryController;
-
 	public ObjectivesController ObjectivesController;
+	public FoodController FoodController;
 
 	private void Awake()
 	{
 		ObjectivesController = FindObjectOfType<ObjectivesController>();
+		FoodController = FindObjectOfType<FoodController>();
 	}
 
 	// Start is called before the first frame update
@@ -376,6 +377,12 @@ public class PlayerController : MonoBehaviour
 	public void StartInteracting(InteractionScriptableObject interaction)
 	{
 		Debug.Log($"StartInteracting({interaction.name})");
+
+		if (interaction.IsFood && !FoodController.HasEatenToday)
+		{
+			FoodController.EatFood(interaction);
+			return;
+		}
 
 		// KANNA
 		// This is the start of the interacting method.
