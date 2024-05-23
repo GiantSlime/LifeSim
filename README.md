@@ -13,8 +13,12 @@ CHANGELOG
 [FIXED][BUG] Placing an item in a buildslot that has an item, deletes the item instead of swapping them.
 [DONE][FEATURE] Player should lose energy levels over time
 [FIXED][BUG] sleep doesnt work
+[FIXED][hotfix]player can only go outside once a day
 
-TODO LIST
+
+
+
+<============== TODO LIST ===========>
 
 [BUG] When you re-clcik shop again -> shouldn't be able to
 [FEATURE] Kanna needs to add build slot border thingy
@@ -26,14 +30,9 @@ Possible [BUG]: Shop might be randomly cycling through items, RNG might not be w
 [QUESTION] Should menus have an exit button?
 
 
-FEATURES
 
-[hotfix]
-player can only go outside once a day
 
-[Player emotions][low priority]
--when ever the player is interacting, a emotion bubble will pop up on top of the player head. make the pop up emotion changeable through editor (based on interaction)
--
+<============== FEATURES ============>
 
 [Shopping category]
 have each shopping iten have a category (shown in tooltip). instead of showing random object, please display a random object from each caterory per day. there will be 5 categories. [car][floral][artistic][gamer][retro]
@@ -72,6 +71,9 @@ player can answer these questions from definitely aggree to definitely disagree.
 	aggree +1
 	disagree -1
 	definitely disagree -2
+
+[Player emotions][low priority]
+-when ever the player is interacting, a emotion bubble will pop up on top of the player head. make the pop up emotion changeable through editor (based on interaction)
 
 tyty ily baby
 

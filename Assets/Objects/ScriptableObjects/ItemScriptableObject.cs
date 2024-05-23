@@ -11,4 +11,6 @@ public class ItemScriptableObject : ScriptableObject
 	public Sprite Sprite;
 
 	public PlacementType[] PlacementTypes;
+
+	public ItemCategory ItemCategory;
 }

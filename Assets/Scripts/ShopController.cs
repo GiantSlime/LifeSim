@@ -18,9 +18,10 @@ public class ShopController : MonoBehaviour
     public List<Button> ItemSaleButtonList = new();
     private List<ItemSale> _itemSaleList = new();
 
-	public int MaximumItemsToLoad = 8;
-    public int NumberOfItemsPerRow = 4;
-    public int NumberOfRowsPerPage = 2;
+	private int MaximumItemsToLoad = 5;
+    private int NumberOfItemsPerRow = 5;
+    private int NumberOfRowsPerPage = 1;
+    public int NumberOfItemsPerCategoryToLoad = 1;
 
     public GameObject ItemSaleButtonTemplate;
 
@@ -76,24 +77,64 @@ public class ShopController : MonoBehaviour
         ItemSale[] itemsArray = new ItemSale[GameController.Instance.ShopItems.Count];
 		GameController.Instance.ShopItems.CopyTo(itemsArray);
         var itemsList = itemsArray.ToList();
-		
-        // Randomly select using the remaining items up to MaximumItemsToLoad
-		Random.InitState(TimeController.Day);
-		var itemsToLoad = new List<ItemSale>();
-        var numberOfItemsToLoad = Mathf.Min(MaximumItemsToLoad, itemsList.Count);
-		for (int i = 0; i < numberOfItemsToLoad; i++)
-        {
-            var itemIndex = Random.Range(0, itemsList.Count);
-            var item = itemsList[itemIndex];
-            itemsList.RemoveAt(itemIndex);
 
-            itemsToLoad.Add(item);
+        // Instead of randomly selecting, we now want one random item from each category to show up
+        List<ItemSale> carCategory = new();
+        List<ItemSale> floralCategory = new();
+        List<ItemSale> artisticCategory = new();
+        List<ItemSale> gamerCategory = new();
+        List<ItemSale> retroCategory = new();
+
+        foreach (var item in itemsList)
+        {
+            switch (item.Item.ItemCategory)
+            {
+                case ItemCategory.Car:
+                    carCategory.Add(item);
+                    break;
+                case ItemCategory.Floral:
+                    floralCategory.Add(item);
+                    break;
+                case ItemCategory.Artistic:
+                    artisticCategory.Add(item);
+                    break;
+                case ItemCategory.Gamer: 
+                    gamerCategory.Add(item);
+                    break;
+                case ItemCategory.Retro:
+                    retroCategory.Add(item);
+                    break;
+            }
         }
+
+		// Randomly select using the remaining items up to MaximumItemsToLoad
+		var itemsToLoad = new List<ItemSale>();
+        itemsToLoad.AddRange(GetRandomItemFromCategoryList(carCategory));
+        itemsToLoad.AddRange(GetRandomItemFromCategoryList(floralCategory));
+        itemsToLoad.AddRange(GetRandomItemFromCategoryList(artisticCategory));
+        itemsToLoad.AddRange(GetRandomItemFromCategoryList(gamerCategory));
+        itemsToLoad.AddRange(GetRandomItemFromCategoryList(retroCategory));
 
         return itemsToLoad;
     }
 
-    public void CreateButtons(IList<ItemSale> itemsToSell)
+    private List<ItemSale> GetRandomItemFromCategoryList(List<ItemSale> itemsList)
+    {
+        var returnList = new List<ItemSale>();
+		Random.InitState(TimeController.Day);
+        for (var i = 0; i < Mathf.Min(NumberOfItemsPerCategoryToLoad, itemsList.Count); i++)
+        {
+			var itemIndex = Random.Range(0, itemsList.Count);
+			var item = itemsList[itemIndex];
+			itemsList.RemoveAt(itemIndex);
+
+			returnList.Add(item);
+		}
+
+        return returnList;
+	}
+
+	public void CreateButtons(IList<ItemSale> itemsToSell)
     {
         for (var i = 0; i < itemsToSell.Count; i++)
         {
