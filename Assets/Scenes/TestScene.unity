@@ -3519,7 +3519,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 436221639092264286, guid: c6e9893876223e34a83245e3a71f1bb2, type: 3}
       propertyPath: m_Name
-      value: Bedroom
+      value: BedroomBackground
       objectReference: {fileID: 0}
     - target: {fileID: 3187008009000729794, guid: c6e9893876223e34a83245e3a71f1bb2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7079,7 +7079,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 321878748177480276, guid: 3413eeb43c5ceb9458154badff91de16, type: 3}
       propertyPath: m_Name
-      value: Living_room
+      value: LivingRoomBackground
       objectReference: {fileID: 0}
     - target: {fileID: 3575761703462665667, guid: 3413eeb43c5ceb9458154badff91de16, type: 3}
       propertyPath: m_LocalPosition.x
