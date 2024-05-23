@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: 
+  content: An Apple a day...
   header: Apple
 --- !u!1 &645714509412565642
 GameObject:
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: 
+  content: Do you pour milk first or the after?
   header: Cereal
 --- !u!1 &1433006645892640327
 GameObject:
@@ -696,7 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: 
+  content: Comes with Ketchup
   header: Chicken Nugget
 --- !u!1 &4139628554401315431
 GameObject:
@@ -835,7 +835,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.67058825, g: 0.67058825, b: 0.67058825, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -853,7 +853,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 7257928575020423614}
+  m_TargetGraphic: {fileID: 3867790430479961204}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -895,7 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: Open Fridge
+  content: Open Fridge to get quick meal
   header: 
 --- !u!1 &5669842439082642552
 GameObject:
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: 
+  content: Healthy Ice Cream
   header: Yoghurt
 --- !u!1 &6467343096139250475
 GameObject:
@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: 
+  content: The potion for your growth
   header: Milk
 --- !u!1 &7149746602978543157
 GameObject:
@@ -1456,7 +1456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f24e98a50aa4e645a74b46d09bc6042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: 
+  content: 100% orange juice, no added flavours
   header: Orange Juice
 --- !u!1 &8393400992384409873
 GameObject:
