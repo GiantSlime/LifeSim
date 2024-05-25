@@ -38,7 +38,7 @@ public class FoodController : MonoBehaviour
 		CreateIngredientButtons();
 	}
 
-	private void OnDayCycle()
+	private void OnDayCycle(int day)
 	{
 		_hasEatenToday = false;
 	}
@@ -105,13 +105,13 @@ public class FoodController : MonoBehaviour
 		}
 
 		// Objectives hidden data +/-
-		var ingredient = Ingredients.FindIndex(x => x.Name == name);
-		// ObjectivesController.AddIngredientSelection(ingredient);
+		var ingredient = Ingredients[Ingredients.FindIndex(x => x.Name == name)];
+		ObjectivesController.OnIngredientPicked(ingredient);
 
 		SpecialRandomIngredientMenu.SetActive(false);
 
 		PlayerController.StartInteracting(_foodToEat);
-
+		
 		_foodToEat = null;
 	}
 }

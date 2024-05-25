@@ -24,7 +24,7 @@ public class TimeController : MonoBehaviour
     public TextMeshProUGUI DayText;
 
 	public event Action<int> OnGameTick;
-    public event Action OnDayCycle;
+    public event Action<int> OnDayCycle;
 
     // Start is called before the first frame update
     public void Start()
@@ -63,13 +63,13 @@ public class TimeController : MonoBehaviour
 		if (time.Day >= 2)
         {
             time = time.Subtract(TimeSpan.FromDays(1));
-            OnDayCycle.Invoke();
+            Day++;
+            OnDayCycle.Invoke(Day);
         }
     }
 
-    public void UpdateDay_OnDayCycle() 
+    public void UpdateDay_OnDayCycle(int day) 
     {
-        Day += 1;
         DayText.text = $"Day {Day}";
     }
 

@@ -13,7 +13,7 @@ public class ShopController : MonoBehaviour
     public InventoryController InventoryController;
     public StatusController StatusController;
     public ObjectivesController ObjectivesController;
-
+    
 	[HideInInspector]
     public List<Button> ItemSaleButtonList = new();
     private List<ItemSale> _itemSaleList = new();
@@ -25,6 +25,10 @@ public class ShopController : MonoBehaviour
 
 	private float _shopWindowWidth;
 	private float _shopWindowHeight;
+
+    private bool _hasBoughtItemToday = false;
+
+    public GameObject AlreadyBoughtItemTodayText;
 
 	private void Awake()
 	{
@@ -39,11 +43,22 @@ public class ShopController : MonoBehaviour
 		var windowRect = GetComponent<RectTransform>().rect;
 		_shopWindowWidth = windowRect.width * 2;
 		_shopWindowHeight = windowRect.height * 2;
+
+        TimeController.OnDayCycle += OnDayCycle;
 	}
+
+    private void OnDayCycle(int day)
+    {
+        _hasBoughtItemToday = false;
+    }
 
 	private void OnEnable()
 	{
         LoadControllers();
+        if (_hasBoughtItemToday)
+        {
+            AlreadyBoughtItemTodayText.SetActive(true);
+        }
         OnLoad();
 	}
 
@@ -51,6 +66,7 @@ public class ShopController : MonoBehaviour
 	{
 		ItemSaleButtonList.ForEach(button => Destroy(button.gameObject));
         _itemSaleList.Clear();
+		//AlreadyBoughtItemTodayText.SetActive(false);
 	}
 
     private void LoadControllers()
@@ -99,7 +115,7 @@ public class ShopController : MonoBehaviour
             var btn = itemGameObject.GetComponent<Button>();
 			btn.image.sprite = itemSale.Item.Sprite;
             btn.onClick.AddListener(delegate { TryPurchaseItem(itemSale.Item.Name); });
-            btn.interactable = !itemSale.Item.IsItemPurchased && StatusController.CanAffordCost(itemSale.Cost);
+            btn.interactable = !_hasBoughtItemToday && !itemSale.Item.IsItemPurchased && StatusController.CanAffordCost(itemSale.Cost);
 
             // set tooltip to item name
             var tltp = itemGameObject.GetComponent<TooltipTrigger>();
@@ -131,8 +147,8 @@ public class ShopController : MonoBehaviour
 
         InventoryController.AddItem(itemSale.Item);
 
-        ObjectivesController.OnItemBought();
-
+        ObjectivesController.OnItemBought(itemSale);
+        _hasBoughtItemToday = true;
         RecheckItemAvailability(); // what a dirty hack around
     }
 

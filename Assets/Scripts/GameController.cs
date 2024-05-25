@@ -24,8 +24,12 @@ public class GameController : MonoBehaviour
 	[HideInInspector]
 	public List<ItemSale> TodaysItems = new();
 
-
+	[HideInInspector]
 	public TimeController TimeController;
+	[HideInInspector]
+	public QuestionController QuestionController;
+
+	public int NumberOfDaysForGame = 3;
 
 	private void Awake()
 	{
@@ -34,6 +38,7 @@ public class GameController : MonoBehaviour
 		Instance = this;
 
 		TimeController = FindObjectOfType<TimeController>();
+		QuestionController = FindObjectOfType<QuestionController>();
 	}
 
 	private void Start()
@@ -43,9 +48,14 @@ public class GameController : MonoBehaviour
 		TimeController.OnDayCycle += OnDayCycle;
 	}
 
-	private void OnDayCycle()
+	private void OnDayCycle(int day)
 	{
 		ResetDailyShopItems();
+		if (day > NumberOfDaysForGame)
+		{
+			TimeController.PauseGameTime();
+			QuestionController.StartQuestions();
+		}
 	}
 
 	// Separates all items into their individual category lists

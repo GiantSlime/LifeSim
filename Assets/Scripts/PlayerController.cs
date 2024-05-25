@@ -363,7 +363,7 @@ public class PlayerController : MonoBehaviour
 		}
 		if (_interaction.IsFood)
 		{
-			ObjectivesController.OnFoodEaten();
+			ObjectivesController.OnFoodEaten(_interaction);
 		}
 		if (_interaction.HasMaximumTime && _interaction.CurrentMaximumTime <= 0)
 		{

@@ -154,7 +154,7 @@ public class ExplorationController : MonoBehaviour
 		CurrentExploreType = exploreType;
 		moveStarted = true;
 		IsExploring = true;
-		ObjectivesController.OnGoneOutside();
+		ObjectivesController.OnGoneOutside(exploreType);
 
 		_HasExploredToday = true;
 	}
@@ -181,7 +181,7 @@ public class ExplorationController : MonoBehaviour
 		EndExplorationButtion.gameObject.SetActive(false);
 	}
 
-	private void OnNewDay()
+	private void OnNewDay(int day)
 	{
 		_HasExploredToday = false;
 	}
