@@ -129,7 +129,7 @@ public class StatusController : MonoBehaviour
 
 	public bool HasBadStatus()
 	{
-		if (EnergyLevel == 0 || FunLevel == 0 || HungerLevel == 0)
+		if (EnergyLevel <= 0 || FunLevel <= 0 || HungerLevel <= 0)
 			return true;
 
 		return false;
