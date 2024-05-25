@@ -232,6 +232,8 @@ public class PlayerController : MonoBehaviour
 			IsAutomoving = false;
 			AutomovePosition = null;
 
+			StopMovement();
+
 			if (_currentActiveInteractable != null)
 			{
 				Debug.Log($"Interacting with {_currentActiveInteractable.gameObject.name}.");
@@ -362,6 +364,8 @@ public class PlayerController : MonoBehaviour
 			_subTaskController.Player = this;
 
 			IsInteracting = true;
+
+			StopMovement();
 		}
 	}
 
@@ -389,10 +393,19 @@ public class PlayerController : MonoBehaviour
 		return StatusController.CanInteract(interaction);
 	}
 
+	private void StopMovement()
+	{
+		_rigidBody.velocity = Vector3.zero;
+		SetPlayerWalkingAnimation(false);
+	}
+
 	private InteractionScriptableObject _interaction;
 	public void StartInteracting(InteractionScriptableObject interaction)
 	{
 		Debug.Log($"StartInteracting({interaction.name})");
+
+		// Stop movement.
+		StopMovement();
 
 		if (interaction.IsFood && !FoodController.HasEatenToday)
 		{
@@ -414,6 +427,8 @@ public class PlayerController : MonoBehaviour
 		_subTaskController = null;
 		Destroy(_interactMenu);
 		_interactMenu = null;
+
+		StopMovement();
 	}
 
 	public void StopInteracting()
