@@ -377,10 +377,6 @@ public class PlayerController : MonoBehaviour
 		{
 			ObjectivesController.OnWorking(timePassedPerTick);
 		}
-		if (_interaction.IsFood)
-		{
-			ObjectivesController.OnFoodEaten(_interaction);
-		}
 		if (_interaction.HasMaximumTime && _interaction.CurrentMaximumTime <= 0)
 		{
 			Debug.Log("Interaction has reached maximum time. Stopping Interaction");
@@ -421,6 +417,16 @@ public class PlayerController : MonoBehaviour
 		// Animation should be set to start here.
 
 		_interaction = interaction;
+		if (_interaction.HasMaximumTime)
+		{
+			_interaction.CurrentMaximumTime = _interaction.MaximumTime;
+		}
+
+		if (_interaction.IsFood)
+		{
+			ObjectivesController.OnFoodEaten(_interaction);
+		}
+
 		if (interaction.Money < 0)
 			StatusController.AcceptCost(interaction.Money);
 		TimeController.OnGameTick += Interact_OnGameTick;
