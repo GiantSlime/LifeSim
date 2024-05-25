@@ -8974,7 +8974,7 @@ MonoBehaviour:
   TodaysItems: []
   TimeController: {fileID: 0}
   QuestionController: {fileID: 0}
-  NumberOfDaysForGame: 3
+  NumberOfDaysForGame: 4
 --- !u!4 &1546661505
 Transform:
   m_ObjectHideFlags: 0
