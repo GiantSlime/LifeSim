@@ -24,5 +24,7 @@ public class InteractionScriptableObject : ScriptableObject
 	public float Money = 0;
 
 	public bool IsFood = false;
+	public bool IsBook = false;
+	public bool IsPeeCee = false;
 }
 

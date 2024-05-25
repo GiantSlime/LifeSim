@@ -342,10 +342,11 @@ public class PlayerController : MonoBehaviour
 
 		if (IsInteracting)
 		{
-			if (Input.GetKeyDown(KeyCode.Escape))
-			{
-				StopInteracting();
-			}
+			// No escape button to stop interacting
+			//if (Input.GetKeyDown(KeyCode.Escape))
+			//{
+			//	StopInteracting();
+			//}
 
 			return;
 		}
@@ -373,6 +374,9 @@ public class PlayerController : MonoBehaviour
 	{
 		Debug.Log($"Interact_OnGameTick({timePassedPerTick})");
 		StatusController.Interact(_interaction, timePassedPerTick);
+
+		StopInteractingButton.SetActive(true);
+
 		if (_interaction.Name == "Work")
 		{
 			ObjectivesController.OnWorking(timePassedPerTick);
@@ -410,9 +414,15 @@ public class PlayerController : MonoBehaviour
 		}
 
 		BackInteractionButton.SetActive(false);
-		StopInteractingButton.SetActive(true);
 
 		// KANNA
+		//if (interaction.Name == "bed")
+		//if (interaction.IsFood)
+		//if (interaction.IsBook)
+		//if (interaction.IsPeeCee)
+		//if (interaction.Name == "Disco") // the disco name should be the name of hte disco interaction in the name field
+		//if (interaction.Name == "Library") // same thing with disco, name field matches
+
 		// This is the start of the interacting method.
 		// Animation should be set to start here.
 
