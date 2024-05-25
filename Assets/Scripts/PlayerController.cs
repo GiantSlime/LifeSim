@@ -20,11 +20,22 @@ public class PlayerController : MonoBehaviour
 		set
 		{
 			_isInteracting = value;
-			InventoryController.InventoryButton.interactable = !value;
+			InventoryController.InventoryButton.interactable = !value && !_isExploring;
 		}
 	}
 
-	public bool IsExploring = false;
+	public bool _isExploring = false;
+	public bool IsExploring {
+		get
+		{
+			return _isExploring;
+		}
+		set
+		{
+			_isExploring = value;
+			InventoryController.InventoryButton.interactable = !value && !_isInteracting;
+		}
+	}
 	public bool IsInventorying => InventoryController?.IsInventorying ?? false;
 
 	public GameObject Base;
@@ -207,6 +218,7 @@ public class PlayerController : MonoBehaviour
 	public bool IsAutomoving = false;
 	
 	public Vector2? AutomovePosition = null;
+
 	public void MovePlayerTo(Vector2 pos)
 	{
 		if (IsInteracting && !IsExploring) return;
