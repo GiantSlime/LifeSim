@@ -40,7 +40,7 @@ public class ObjectivesController : MonoBehaviour
     public Sprite OpenCheckbox;
     public Sprite CheckedCheckbox;
 
-    private int _actionScore = 6;
+    private int _actionScore = 1;
     private int _questionsScore = 0;
     private List<string> _events = new();
 
