@@ -165,9 +165,11 @@ public class ExplorationController : MonoBehaviour
 		switch (exploreType)
 		{
 			case ExploreType.Disco:
+				LibraryBackground.SetActive(false);
 				DiscoBackground.SetActive(true);
 				break;
 			case ExploreType.Library:
+				DiscoBackground.SetActive(false);
 				LibraryBackground.SetActive(true);
 				break;
 		}
