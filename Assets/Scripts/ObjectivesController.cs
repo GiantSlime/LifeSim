@@ -87,9 +87,14 @@ public class ObjectivesController : MonoBehaviour
 
     private int CalculateItemsValue()
     {
+        var highestItemCount = 0;
         var totalNumberOfItemsBought = 0;
         foreach (var item in _itemsBought)
         {
+            if (item.Value > highestItemCount)
+            {
+                highestItemCount = item.Value;
+            }
             totalNumberOfItemsBought += item.Value;
         }
 
@@ -98,41 +103,43 @@ public class ObjectivesController : MonoBehaviour
             return 0;
         }
 
-        if (totalNumberOfItemsBought == 3) // 3 items bought
-        {
-            if (_itemsBought.Count == 1) // all same category
-			{
-                return 2; 
-            }
+        return highestItemCount;
 
-            if (_itemsBought.Count == 2) // 2 different categories (i.e. 2 of one category and 1 of another category
-            {
-                return 1;
-            }
+   //     if (totalNumberOfItemsBought == 3) // 3 items bought
+   //     {
+   //         if (_itemsBought.Count == 1) // all same category
+			//{
+   //             return 2; 
+   //         }
 
-            if (_itemsBought.Count == 3) // 3 different categories
-            {
-                return -2;
-            }
-        }
+   //         if (_itemsBought.Count == 2) // 2 different categories (i.e. 2 of one category and 1 of another category
+   //         {
+   //             return 1;
+   //         }
 
-        if (totalNumberOfItemsBought == 1)
-        {
-            return -1; // kanna how many points for only buying 1
-        }
+   //         if (_itemsBought.Count == 3) // 3 different categories
+   //         {
+   //             return -2;
+   //         }
+   //     }
 
-        if (totalNumberOfItemsBought == 2) // 2 items bought
-        {
-            if (_itemsBought.Count == 2) // 2 different categories
-            {
-                return -2; // kanna how many points
-            }
+   //     if (totalNumberOfItemsBought == 1)
+   //     {
+   //         return -1; // kanna how many points for only buying 1
+   //     }
 
-            if (_itemsBought.Count == 1) // 2 of the same category
-            {
-                return 2; // kanna how many points
-            }
-        }
+   //     if (totalNumberOfItemsBought == 2) // 2 items bought
+   //     {
+   //         if (_itemsBought.Count == 2) // 2 different categories
+   //         {
+   //             return -2; // kanna how many points
+   //         }
+
+   //         if (_itemsBought.Count == 1) // 2 of the same category
+   //         {
+   //             return 2; // kanna how many points
+   //         }
+   //     }
 
         return 0;
     }
@@ -158,11 +165,12 @@ public class ObjectivesController : MonoBehaviour
         HasGoneOutside = true;
         SetObjectiveAsCompleted(TouchGrassObjective, TouchGrassCheckBox);
         var score = 0;
-        if (location == ExplorationController.ExploreType.Disco) 
-        {
-			score--;
-        }
-        else if (location == ExplorationController.ExploreType.Library)
+        //if (location == ExplorationController.ExploreType.Disco) 
+        //{
+		//	score--;
+        //}
+        //else
+        if (location == ExplorationController.ExploreType.Library)
 		{
 			score++;
         }
@@ -198,12 +206,12 @@ public class ObjectivesController : MonoBehaviour
 		if (ingredient.IngredientType == IngredientType.Normal)
 		{
 			score++;
-		}
-		else if (ingredient.IngredientType == IngredientType.Weird)
-		{
-			score--;
-		}
-		AddEvent($"IngredientPicked: ingredient={ingredient.Name}, value={score}");
+        }
+        //else if (ingredient.IngredientType == IngredientType.Weird)
+        //{
+        //	score++;
+        //}
+        AddEvent($"IngredientPicked: ingredient={ingredient.Name}, value={score}");
         _actionScore += score;
 	}
 	public void OnQuestionAnswered(Question question, AnswerType answer)
@@ -212,16 +220,16 @@ public class ObjectivesController : MonoBehaviour
         switch (answer)
 		{
 			case AnswerType.StronglyAgree:
-				scoreDiff += 2 * (question.AnswerValue == AnswerValue.Positive ? 1 : -1);
+				scoreDiff += question.AnswerValue == AnswerValue.Positive ? 4 : 1;
 				break;
 			case AnswerType.Agree:
-				scoreDiff += 1 * (question.AnswerValue == AnswerValue.Positive ? 1 : -1);
+				scoreDiff += question.AnswerValue == AnswerValue.Positive ? 3 : 2;
 				break;
 			case AnswerType.Disagree:
-				scoreDiff += -1 * (question.AnswerValue == AnswerValue.Positive ? 1 : -1);
+				scoreDiff += question.AnswerValue == AnswerValue.Positive ? 2 : 3;
 				break;
 			case AnswerType.StronglyDisagree:
-				scoreDiff += -2 * (question.AnswerValue == AnswerValue.Positive ? 1 : -1);
+				scoreDiff += question.AnswerValue == AnswerValue.Positive ? 1 : 4;
 				break;
 		}
 
