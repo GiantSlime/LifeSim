@@ -17,7 +17,9 @@ MonoBehaviour:
   Fun: 5
   Hunger: 50
   HasMaximumTime: 1
-  MaximumTime: 600
-  CurrentMaximumTime: 0
+  MaximumTime: 60
+  CurrentMaximumTime: 595
   Money: 0
   IsFood: 1
+  IsBook: 0
+  IsPeeCee: 0

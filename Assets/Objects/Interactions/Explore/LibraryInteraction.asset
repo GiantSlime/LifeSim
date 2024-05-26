@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: LibraryInteraction
   m_EditorClassIdentifier: 
   Name: Library
-  Energy: -23
-  Fun: 20
-  Hunger: -17
+  Energy: -10
+  Fun: 40
+  Hunger: -5
   HasMaximumTime: 1
-  MaximumTime: 3
-  CurrentMaximumTime: 0
+  MaximumTime: 180
+  CurrentMaximumTime: 160
   Money: -50
   IsFood: 0
   IsBook: 0

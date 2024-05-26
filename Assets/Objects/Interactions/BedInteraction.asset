@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: BedInteraction
   m_EditorClassIdentifier: 
   Name: Bed
-  Energy: 34
-  Fun: -21
-  Hunger: -29
+  Energy: 15
+  Fun: -5
+  Hunger: -5
   HasMaximumTime: 0
   MaximumTime: 0
   CurrentMaximumTime: 0
+  Money: 0
+  IsFood: 0
+  IsBook: 0
+  IsPeeCee: 0

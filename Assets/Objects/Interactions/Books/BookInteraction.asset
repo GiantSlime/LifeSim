@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BookInteraction
   m_EditorClassIdentifier: 
   Name: AllBooks
-  Energy: -10
-  Fun: 10
-  Hunger: -5
+  Energy: 0
+  Fun: 20
+  Hunger: 0
   HasMaximumTime: 0
   MaximumTime: 0
   CurrentMaximumTime: 0

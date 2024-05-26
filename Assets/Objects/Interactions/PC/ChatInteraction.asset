@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Chat
   Energy: -10
-  Fun: 10
+  Fun: 20
   Hunger: -5
   HasMaximumTime: 0
   MaximumTime: 0

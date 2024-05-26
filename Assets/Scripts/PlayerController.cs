@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
 	public Animator BedAnim;
 	public GameObject bedplayerhead;
 	public GameObject playerBook;
+	public GameObject chair;
 
 	private void Awake()
 	{
@@ -388,7 +390,9 @@ public class PlayerController : MonoBehaviour
 
 			IsInteracting = true;
 
-			StopMovement();
+            BackInteractionButton.SetActive(true);
+
+            StopMovement();
 		}
 	}
 
@@ -457,8 +461,10 @@ public class PlayerController : MonoBehaviour
             _playerAnimators.ForEach(a => { a.SetBool("IsInteracting", true); });
             _playerAnimators.ForEach(a => { a.speed = 0; });
         }
-		if (interaction.IsPeeCee)
+        if (interaction.IsPeeCee)
 		{
+            transform.localScale = new Vector3(1, 1, 1);
+            gameObject.transform.position = chair.transform.position;
             _playerAnimators.ForEach(a => { a.SetBool("IsSitting", true); });
         }
 
@@ -534,10 +540,11 @@ public class PlayerController : MonoBehaviour
 	public void StopExploreAnimations()
 	{
 		_exploreInteraction = null;
-
-		_playerAnimators.ForEach(a => { a.SetBool("IsInteracting", false); });
+        playerBook.SetActive(false);
+        _playerAnimators.ForEach(a => { a.SetBool("IsInteracting", false); });
 		_playerAnimators.ForEach(a => { a.SetBool("IsSitting", false); });
-	}
+        _playerAnimators.ForEach(a => { a.speed = 1; });
+    }
 
 	/// <summary>
 	/// Gets the absolute distance from a gameobject to this object.

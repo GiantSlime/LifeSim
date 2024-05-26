@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GameInteraction
   m_EditorClassIdentifier: 
   Name: Game
-  Energy: -10
-  Fun: 10
-  Hunger: -10
+  Energy: -5
+  Fun: 25
+  Hunger: -5
   HasMaximumTime: 0
   MaximumTime: 0
   CurrentMaximumTime: 0

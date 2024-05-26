@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WorkInteraction
   m_EditorClassIdentifier: 
   Name: Work
-  Energy: -15
+  Energy: -10
   Fun: -10
   Hunger: -10
   HasMaximumTime: 0
