@@ -422,6 +422,7 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private InteractionScriptableObject _interaction;
+	private InteractionScriptableObject _exploreInteraction;
 	public void StartInteracting(InteractionScriptableObject interaction)
 	{
 		Debug.Log($"StartInteracting({interaction.name})");
@@ -460,17 +461,11 @@ public class PlayerController : MonoBehaviour
 		{
             _playerAnimators.ForEach(a => { a.SetBool("IsSitting", true); });
         }
-		if (interaction.Name == "Disco") // the disco name should be the name of hte disco interaction in the name field
-		{
-            _playerAnimators.ForEach(a => { a.SetBool("IsInteracting", true); });
-        }
-		if (interaction.Name == "Library") // same thing with disco, name field matches
-		{
-            playerBook.SetActive(true);
-            _playerAnimators.ForEach(a => { a.SetBool("IsInteracting", true); });
-            _playerAnimators.ForEach(a => { a.speed = 0; });
-        }
 
+		if (interaction.Name == "Disco" || interaction.Name == "Library")
+		{
+			_exploreInteraction = interaction;
+		}
 		// This is the start of the interacting method.
 		// Animation should be set to start here.
 
@@ -521,6 +516,27 @@ public class PlayerController : MonoBehaviour
 
 		StopInteractingButton.SetActive(false);
 		BackInteractionButton.SetActive(false);
+	}
+
+	public void StartExploreAnimations()
+	{
+		if (_exploreInteraction.Name == "Disco") // the disco name should be the name of hte disco interaction in the name field
+		{
+			_playerAnimators.ForEach(a => { a.SetBool("IsInteracting", true); });
+		}
+		if (_exploreInteraction.Name == "Library") // same thing with disco, name field matches
+		{
+			playerBook.SetActive(true);
+			_playerAnimators.ForEach(a => { a.SetBool("IsInteracting", true); });
+			_playerAnimators.ForEach(a => { a.speed = 0; });
+		}
+	}
+	public void StopExploreAnimations()
+	{
+		_exploreInteraction = null;
+
+		_playerAnimators.ForEach(a => { a.SetBool("IsInteracting", false); });
+		_playerAnimators.ForEach(a => { a.SetBool("IsSitting", false); });
 	}
 
 	/// <summary>

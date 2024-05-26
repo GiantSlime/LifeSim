@@ -106,6 +106,7 @@ public class ExplorationController : MonoBehaviour
 				// Set start explore animation
 				IsInteracting = true;
 				EndExplorationButtion.gameObject.SetActive(true);
+				PlayerController.StartExploreAnimations();
 			}
 		}
 	}
@@ -177,6 +178,7 @@ public class ExplorationController : MonoBehaviour
 
 	public void ReturnHome()
 	{
+		PlayerController.StopExploreAnimations();
 		IsInteracting = false;
 		IsReturning = true;
 		PlayerController.MovePlayerTo(OutsideExplorePosition.position);
