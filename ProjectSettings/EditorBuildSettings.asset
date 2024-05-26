@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/CustomCharacterisation.unity
     guid: 6bccb8b0e135e184a9f2052032c28181
   - enabled: 1
