@@ -106,6 +106,7 @@ public class ExplorationController : MonoBehaviour
 				// Set start explore animation
 				IsInteracting = true;
 				EndExplorationButtion.gameObject.SetActive(true);
+				PlayerController.StartInteracting(_interaction, false);
 				PlayerController.StartExploreAnimations();
 			}
 		}
@@ -123,6 +124,7 @@ public class ExplorationController : MonoBehaviour
 		IsReturning = false;
 		HasReturnedHome = false;
 		moveStarted = false;
+		_interaction = null;
 	}
 
 	public Vector2? GetCurrentExploreLocation()
@@ -140,8 +142,11 @@ public class ExplorationController : MonoBehaviour
 		return null;
 	}
 
-	public void StartExploring(ExploreType exploreType)
+	private InteractionScriptableObject _interaction;
+	public void StartExploring(ExploreType exploreType, InteractionScriptableObject interaction)
 	{
+		_interaction = interaction;
+
 		if (_HasExploredToday)
 		{
 			Debug.Log("StartExploring:Player has already explored today.");
@@ -150,7 +155,7 @@ public class ExplorationController : MonoBehaviour
 
 		PlayerController.IsExploring = true;
 		PlayerController.GetComponent<BoxCollider2D>().enabled = false;
-		PlayerController.MovePlayerTo(OutsideHomePosition.position);
+		PlayerController.BeginExplore(OutsideHomePosition.position);
 		LoadExploreScreen(exploreType);
 		CurrentExploreType = exploreType;
 		moveStarted = true;
@@ -179,6 +184,7 @@ public class ExplorationController : MonoBehaviour
 	public void ReturnHome()
 	{
 		PlayerController.StopExploreAnimations();
+		PlayerController.StopInteracting();
 		IsInteracting = false;
 		IsReturning = true;
 		PlayerController.MovePlayerTo(OutsideExplorePosition.position);

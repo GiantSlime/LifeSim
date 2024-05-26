@@ -16,13 +16,13 @@ public class ExplorationSubTaskController : MonoBehaviour
 
 	public void ExploreDisco(InteractionScriptableObject interaction)
 	{
-		interactableSubTaskController.TriggerInteraction(interaction);
-		ExplorationController.StartExploring(ExplorationController.ExploreType.Disco);
+		//interactableSubTaskController.TriggerInteraction(interaction);
+		ExplorationController.StartExploring(ExplorationController.ExploreType.Disco, interaction);
 	}
 
 	public void ExploreLibrary(InteractionScriptableObject interaction)
 	{
-		interactableSubTaskController.TriggerInteraction(interaction);
-		ExplorationController.StartExploring(ExplorationController.ExploreType.Library);
+		//interactableSubTaskController.TriggerInteraction(interaction);
+		ExplorationController.StartExploring(ExplorationController.ExploreType.Library, interaction);
 	}
 }

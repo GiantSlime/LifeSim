@@ -401,7 +401,10 @@ public class PlayerController : MonoBehaviour
 		Debug.Log($"Interact_OnGameTick({timePassedPerTick})");
 		StatusController.Interact(_interaction, timePassedPerTick);
 
-		StopInteractingButton.SetActive(true);
+		if (_interaction.Name != "Disco" && _interaction.Name != "Library")
+		{
+			StopInteractingButton.SetActive(true);
+		}
 
 		if (_interaction.Name == "Work")
 		{
@@ -410,6 +413,12 @@ public class PlayerController : MonoBehaviour
 		if (_interaction.HasMaximumTime && _interaction.CurrentMaximumTime <= 0)
 		{
 			Debug.Log("Interaction has reached maximum time. Stopping Interaction");
+			if (_interaction.Name == "Disco" || _interaction.Name == "Library")
+			{
+				FindObjectOfType<ExplorationController>().ReturnHome();
+				return;
+			}
+
 			StopInteracting();
 		}
 	}
@@ -427,7 +436,7 @@ public class PlayerController : MonoBehaviour
 
 	private InteractionScriptableObject _interaction;
 	private InteractionScriptableObject _exploreInteraction;
-	public void StartInteracting(InteractionScriptableObject interaction)
+	public void StartInteracting(InteractionScriptableObject interaction, bool showInteractionButtons = true)
 	{
 		Debug.Log($"StartInteracting({interaction.name})");
 
@@ -441,6 +450,11 @@ public class PlayerController : MonoBehaviour
 		}
 
 		BackInteractionButton.SetActive(false);
+
+		if (!showInteractionButtons)
+		{
+			StopInteractingButton.SetActive(false);
+		}
 
 		// KANNA
 		if (interaction.Name == "Bed")
@@ -492,8 +506,6 @@ public class PlayerController : MonoBehaviour
 		_subTaskController = null;
 		Destroy(_interactMenu);
 		_interactMenu = null;
-
-		StopMovement();
 	}
 
 	public void StopInteracting()
@@ -522,6 +534,14 @@ public class PlayerController : MonoBehaviour
 
 		StopInteractingButton.SetActive(false);
 		BackInteractionButton.SetActive(false);
+	}
+
+	public void BeginExplore(Vector2 pos)
+	{
+		IsInteracting = false;
+		BackInteractionButton.SetActive(false);
+		_interactMenu?.SetActive(false);
+		MovePlayerTo(pos);
 	}
 
 	public void StartExploreAnimations()
