@@ -57,6 +57,10 @@ public class PlayerController : MonoBehaviour
 	public GameObject StopInteractingButton;
 	public GameObject BackInteractionButton;
 
+	public Animator BedAnim;
+	public GameObject bedplayerhead;
+	public GameObject playerBook;
+
 	private void Awake()
 	{
 		ObjectivesController = FindObjectOfType<ObjectivesController>();
@@ -92,6 +96,24 @@ public class PlayerController : MonoBehaviour
 		Hair.GetComponent<Animator>().runtimeAnimatorController = (RuntimeAnimatorController)data["HairAC"];
 		Pants.GetComponent<Animator>().runtimeAnimatorController = (RuntimeAnimatorController)data["PantsAC"];
 	}
+
+	private void HidePlayer()
+	{
+		Base.gameObject.SetActive(false);
+		Shirt.gameObject.SetActive(false);
+		Shoes.gameObject.SetActive(false);
+		Hair.gameObject.SetActive(false);
+		Pants.gameObject.SetActive(false);
+    }
+
+	private void ShowPlayer()
+    {
+        Base.gameObject.SetActive(true);
+        Shirt.gameObject.SetActive(true);
+        Shoes.gameObject.SetActive(true);
+        Hair.gameObject.SetActive(true);
+        Pants.gameObject.SetActive(true);
+    }
 
 	int _playerDirectionFacing = 1; // -1 left : 1 right
 	private void MovementUpdate()
@@ -416,12 +438,38 @@ public class PlayerController : MonoBehaviour
 		BackInteractionButton.SetActive(false);
 
 		// KANNA
-		//if (interaction.Name == "bed")
-		//if (interaction.IsFood)
-		//if (interaction.IsBook)
-		//if (interaction.IsPeeCee)
-		//if (interaction.Name == "Disco") // the disco name should be the name of hte disco interaction in the name field
-		//if (interaction.Name == "Library") // same thing with disco, name field matches
+		if (interaction.Name == "Bed")
+		{
+			HidePlayer();
+			BedAnim.enabled = true;
+			bedplayerhead.SetActive(true);
+			BedAnim.SetBool("IsSleeping", true);
+
+		}
+		if (interaction.IsFood)
+		{
+            _playerAnimators.ForEach(a => { a.SetBool("IsInteracting", true); });
+        }
+		if (interaction.IsBook)
+		{
+			playerBook.SetActive(true);
+            _playerAnimators.ForEach(a => { a.SetBool("IsInteracting", true); });
+            _playerAnimators.ForEach(a => { a.speed = 0; });
+        }
+		if (interaction.IsPeeCee)
+		{
+            _playerAnimators.ForEach(a => { a.SetBool("IsSitting", true); });
+        }
+		if (interaction.Name == "Disco") // the disco name should be the name of hte disco interaction in the name field
+		{
+            _playerAnimators.ForEach(a => { a.SetBool("IsInteracting", true); });
+        }
+		if (interaction.Name == "Library") // same thing with disco, name field matches
+		{
+            playerBook.SetActive(true);
+            _playerAnimators.ForEach(a => { a.SetBool("IsInteracting", true); });
+            _playerAnimators.ForEach(a => { a.speed = 0; });
+        }
 
 		// This is the start of the interacting method.
 		// Animation should be set to start here.
@@ -454,8 +502,16 @@ public class PlayerController : MonoBehaviour
 		// KANNA
 		// This is the start of the stop interacting method.
 		// Animation should stop here.
+		ShowPlayer();
+        _playerAnimators.ForEach(a => { a.speed = 1; });
+        playerBook.SetActive(false);
+        BedAnim.enabled = false;
+        bedplayerhead.SetActive(false);
+        BedAnim.SetBool("IsSleeping", false);
+        _playerAnimators.ForEach(a => { a.SetBool("IsInteracting", false); });
+        _playerAnimators.ForEach(a => { a.SetBool("IsSitting", false); });
 
-		TimeController.OnGameTick -= Interact_OnGameTick;
+        TimeController.OnGameTick -= Interact_OnGameTick;
 		StatusController.ResetInteraction();
 		_interaction = null;
 		IsInteracting = false;

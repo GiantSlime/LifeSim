@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 60.3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1289,7 +1289,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 75.2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7197,6 +7197,11 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0097878, y: 1.9477}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1253421465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8014001524781500191, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+  m_PrefabInstance: {fileID: 1853456442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1256697706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 484735927516495996, guid: 3b3077d8393871542861f7196b5f3495, type: 3}
@@ -10365,9 +10370,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2239046674025464399, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: BedAnim
+      value: 
+      objectReference: {fileID: 571319815}
+    - target: {fileID: 2239046674025464399, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: playerBook
+      value: 
+      objectReference: {fileID: 1253421465}
+    - target: {fileID: 2239046674025464399, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
       propertyPath: SubTaskCenter
       value: 
       objectReference: {fileID: 1235432175}
+    - target: {fileID: 2239046674025464399, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: bedplayerhead
+      value: 
+      objectReference: {fileID: 790906722}
     - target: {fileID: 2239046674025464399, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
       propertyPath: TimeController
       value: 
@@ -10433,9 +10450,17 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3835989907376168332, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: FunLevel
+      value: 77.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835989907376168332, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 306633532}
+    - target: {fileID: 3835989907376168332, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
+      propertyPath: HungerLevel
+      value: 68.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3835989907376168332, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
       propertyPath: FunBarSlider
       value: 
@@ -10446,7 +10471,7 @@ PrefabInstance:
       objectReference: {fileID: 707966384}
     - target: {fileID: 3835989907376168332, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
       propertyPath: FunDrainPerHour
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3835989907376168332, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
       propertyPath: HungerBarSlider
@@ -10454,11 +10479,11 @@ PrefabInstance:
       objectReference: {fileID: 215775649}
     - target: {fileID: 3835989907376168332, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
       propertyPath: EnergyDrainPerHour
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3835989907376168332, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
       propertyPath: HungerDrainPerHour
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3837152301521167316, guid: 07295eefbce88064a8fa02ac408464cf, type: 3}
       propertyPath: m_Name

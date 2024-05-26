@@ -632,7 +632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cad5648e416d024388bff533484753d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Interaction: {fileID: 11400000, guid: bb3a1aad4e0c53242bde78682a271dc7, type: 2}
+  Interaction: {fileID: 11400000, guid: 2696b3e2c5e9fe940b9f06f0943d5e97, type: 2}
   InteractableSubTaskController: {fileID: 8652780113714455680}
 --- !u!114 &6188447710699732696
 MonoBehaviour:
@@ -834,7 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cad5648e416d024388bff533484753d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Interaction: {fileID: 11400000, guid: d662d5486bb551e4ea391b34cf952a75, type: 2}
+  Interaction: {fileID: 11400000, guid: 98b79497ab6af2a41b948ecceff5e90f, type: 2}
   InteractableSubTaskController: {fileID: 8652780113714455680}
 --- !u!114 &7838253269246840705
 MonoBehaviour:

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74a2624fabfda964eb204e3a0329742e, type: 3}
-  m_Name: ExploreInteraction
+  m_Name: DiscoInteraction
   m_EditorClassIdentifier: 
-  Name: Explore
+  Name: Disco
   Energy: -23
   Fun: 20
   Hunger: -17
@@ -21,3 +21,5 @@ MonoBehaviour:
   CurrentMaximumTime: 0
   Money: -50
   IsFood: 0
+  IsBook: 0
+  IsPeeCee: 0

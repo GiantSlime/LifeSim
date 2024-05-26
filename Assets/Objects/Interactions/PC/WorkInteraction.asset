@@ -20,3 +20,6 @@ MonoBehaviour:
   MaximumTime: 0
   CurrentMaximumTime: 0
   Money: 20
+  IsFood: 0
+  IsBook: 0
+  IsPeeCee: 1
